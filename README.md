@@ -154,5 +154,5 @@ estación en el mapa, `src/lib/escena.ts`.
 ## Versión publicada
 
 La aplicación compilada está en `docs/` y se publica con GitHub Pages en
-**https://sebas04l.github.io/nutrikowi/**. Los datos de los viajes no se suben a GitHub: cada
+**https://sebas04l.github.io/Nutrikowi/**. Los datos de los viajes no se suben a GitHub: cada
 navegador guarda los suyos (descarga respaldos JSON desde *Respaldo*).
