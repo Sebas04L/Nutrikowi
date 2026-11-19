@@ -6,8 +6,8 @@
   "use strict";
   var NS = "http://www.w3.org/2000/svg";
   var C = {
-    asfalto: "#1C2329", acero: "#56646D", aceroClaro: "#93A0A8", niebla: "#C9D0D3",
-    linea: "#D8DDDF", naranja: "#EE7A17", naranjaTinta: "#B0540A", velo: "#FBE7D5", papel: "#F3F4F2"
+    asfalto: "#24211F", acero: "#6A615A", aceroClaro: "#B4AAA1", niebla: "#DDD5CD",
+    linea: "#E7E1DB", naranja: "#EE7A17", naranjaTinta: "#B0540A", velo: "#FDEBDA", papel: "#FFFFFF"
   };
 
   function el(tag, attrs, parent, text) {
@@ -177,9 +177,23 @@
 
   /* ---------- 12 · Ciclo de vida de una llanta ---------- */
   charts.ciclo = function (svg) {
-    var cx = 380, cy = 320, r = 200;
-    el("circle", { cx: cx, cy: cy, r: r, fill: "none", stroke: C.linea, "stroke-width": 3 }, svg);
-    lines(svg, cx, cy - 6, ["Vida de", "una llanta"], { "text-anchor": "middle", "font-size": 30, "font-weight": 680, fill: C.asfalto, "font-stretch": "110%" }, 36);
+    var cx = 380, cy = 360;
+    // Llanta: banda de rodamiento con taco, flanco y rin
+    var llanta = el("g", { "class": "llanta-gira" }, svg);
+    el("circle", { cx: cx, cy: cy, r: 210, fill: C.asfalto }, llanta);
+    for (var k = 0; k < 40; k++) {
+      var a = k * 9;
+      el("rect", { x: cx - 9, y: cy - 214, width: 18, height: 30, rx: 3, fill: C.papel, transform: "rotate(" + a + " " + cx + " " + cy + ")" }, llanta);
+    }
+    el("circle", { cx: cx, cy: cy, r: 168, fill: "#3A3532" }, llanta);
+    el("circle", { cx: cx, cy: cy, r: 112, fill: C.niebla }, llanta);
+    el("circle", { cx: cx, cy: cy, r: 112, fill: "none", stroke: C.naranja, "stroke-width": 8 }, llanta);
+    for (var b = 0; b < 10; b++) {
+      var ab = b * 36 * Math.PI / 180;
+      el("circle", { cx: cx + 72 * Math.cos(ab), cy: cy + 72 * Math.sin(ab), r: 9, fill: C.asfalto }, llanta);
+    }
+    el("circle", { cx: cx, cy: cy, r: 34, fill: C.asfalto }, llanta);
+
     var etapas = [
       ["Instalación", "unidad, posición, km"],
       ["Inspección", "presión y dibujo"],
@@ -187,26 +201,19 @@
       ["Retiro", "km y causa"],
       ["Costo por km", "compra ÷ vida útil"]
     ];
+    var R = 252;
     etapas.forEach(function (e, i) {
       var a = (-90 + i * 72) * Math.PI / 180;
-      var px = cx + r * Math.cos(a), py = cy + r * Math.sin(a);
+      var px = cx + R * Math.cos(a), py = cy + R * Math.sin(a);
       var g = frag(svg, i);
-      // arco recorrido hasta este punto
-      var a0 = (-90 + (i - 1) * 72) * Math.PI / 180;
-      if (i > 0) {
-        el("path", { d: "M" + (cx + r * Math.cos(a0)) + "," + (cy + r * Math.sin(a0)) + " A" + r + "," + r + " 0 0 1 " + px + "," + py, fill: "none", stroke: C.asfalto, "stroke-width": 4, "class": "traza" }, g);
-      }
-      if (i === 4) {
-        var a5 = 270 * Math.PI / 180;
-        el("path", { d: "M" + px + "," + py + " A" + r + "," + r + " 0 0 1 " + (cx + r * Math.cos(a5)) + "," + (cy + r * Math.sin(a5)), fill: "none", stroke: C.naranja, "stroke-width": 4, "class": "traza" }, g);
-      }
-      el("circle", { cx: px, cy: py, r: i === 4 ? 20 : 15, fill: i === 4 ? C.naranja : C.asfalto, stroke: C.papel, "stroke-width": 5 }, g);
+      el("circle", { cx: px, cy: py, r: i === 4 ? 24 : 18, fill: i === 4 ? C.naranja : "#fff", stroke: i === 4 ? "#fff" : C.naranja, "stroke-width": 6 }, g);
+      el("text", { x: px, y: py + 8, "text-anchor": "middle", "font-size": 20, "font-weight": 800, fill: i === 4 ? "#fff" : C.naranjaTinta }, g, String(i + 1));
       var cos = Math.cos(a), sin = Math.sin(a);
       var anchor = cos > 0.3 ? "start" : cos < -0.3 ? "end" : "middle";
-      var lx = px + cos * 40, ly = py + sin * 44 + (sin < -0.5 ? -24 : 8);
-      lines(g, lx, ly, e, { "text-anchor": anchor, "font-size": 25, fill: C.asfalto }, 30).firstChild.setAttribute("font-weight", 680);
-      g.lastChild.lastChild.setAttribute("fill", C.acero);
-      g.lastChild.lastChild.setAttribute("font-size", 22);
+      var lx = px + cos * 40, ly = py + sin * 40 + (sin < -0.5 ? -30 : 8);
+      var t = lines(g, lx, ly, e, { "text-anchor": anchor, "font-size": 31, fill: C.asfalto }, 34);
+      t.firstChild.setAttribute("font-weight", 720);
+      t.lastChild.setAttribute("fill", C.acero); t.lastChild.setAttribute("font-size", 25);
     });
   };
 
@@ -276,13 +283,19 @@
   };
 
   /* ---------- 4 · Rejilla de unidades ---------- */
+  function camion(naranja) {
+    var s = document.createElementNS(NS, "svg");
+    s.setAttribute("viewBox", "0 0 120 52"); s.setAttribute("class", "camion"); s.setAttribute("aria-hidden", "true");
+    var f = naranja ? C.naranja : "none", st = naranja ? C.naranja : C.aceroClaro;
+    var dash = naranja ? undefined : "5 4";
+    el("rect", { x: 2, y: 6, width: 78, height: 30, rx: 4, fill: f, stroke: st, "stroke-width": 3, "stroke-dasharray": dash }, s);
+    el("path", { d: "M84 14 h18 l12 12 v10 h-30 z", fill: naranja ? C.asfalto : "none", stroke: naranja ? C.asfalto : C.aceroClaro, "stroke-width": 3, "stroke-linejoin": "round", "stroke-dasharray": dash }, s);
+    [16, 34, 94, 108].forEach(function (x) { el("circle", { cx: x, cy: 42, r: 7, fill: naranja ? C.asfalto : "none", stroke: naranja ? "#fff" : C.aceroClaro, "stroke-width": 2.5 }, s); });
+    return s;
+  }
   function unidades(box) {
     var total = +box.dataset.unidades, cub = +box.dataset.cubiertas;
-    for (var i = 0; i < total; i++) {
-      var d = document.createElement("div");
-      d.className = "u" + (i >= cub ? " fuera" : "");
-      box.appendChild(d);
-    }
+    for (var i = 0; i < total; i++) box.appendChild(camion(i < cub));
   }
 
   document.querySelectorAll("svg[data-chart]").forEach(function (svg) {

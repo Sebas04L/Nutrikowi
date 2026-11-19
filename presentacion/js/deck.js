@@ -51,6 +51,10 @@
     s.insertBefore(riel, s.firstChild);
   });
 
+  /* Rotulado: las capas del trazo leen el texto desde data-t */
+  window.syncRotulo = function (el) { var r = el && el.closest ? el.closest(".rotulo") : null; if (r) r.dataset.t = r.textContent.replace(/\s+/g, " ").trim(); };
+  document.querySelectorAll(".rotulo").forEach(function (r) { window.syncRotulo(r); });
+
   /* ---------- Reveal ---------- */
   Reveal.initialize({
     width: 1920, height: 1080, margin: 0, minScale: 0.1, maxScale: 3,
@@ -72,12 +76,14 @@
     var fmt = function (v) { return pre + v.toLocaleString("es-MX", { minimumFractionDigits: dec, maximumFractionDigits: dec }) + suf; };
     var o = { v: 0 };
     gsap.killTweensOf(o);
-    gsap.to(o, { v: to, duration: to > 1000 ? 1.6 : 1.1, ease: "power3.out", onUpdate: function () { el.textContent = fmt(o.v); }, onComplete: function () { el.textContent = fmt(to); } });
+    gsap.to(o, { v: to, duration: to > 1000 ? 1.6 : 1.1, ease: "power3.out", onUpdate: function () { el.textContent = fmt(o.v); window.syncRotulo(el); }, onComplete: function () { el.textContent = fmt(to); window.syncRotulo(el); } });
   }
 
   function animarGrupo(raiz) {
     if (!ANIMA || !raiz) return;
     raiz.querySelectorAll(".cuenta").forEach(contar);
+    var camiones = raiz.querySelectorAll(".camion");
+    if (camiones.length) gsap.fromTo(camiones, { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: .45, ease: "back.out(1.6)", stagger: function (i) { return Math.floor(i / 4) * .14 + (i % 4) * .03; } });
     var crece = raiz.querySelectorAll(".crece");
     if (crece.length) gsap.fromTo(crece, { scaleY: 0, transformOrigin: "50% 100%" }, { scaleY: 1, duration: .8, ease: "power3.out", stagger: .07 });
     var cae = raiz.querySelectorAll(".cae");
@@ -139,6 +145,9 @@
       var len = p.getTotalLength ? p.getTotalLength() : 0;
       if (len) gsap.fromTo(p, { strokeDasharray: len, strokeDashoffset: len }, { strokeDashoffset: 0, duration: .9, delay: .3, ease: "power2.inOut", onComplete: function () { p.style.strokeDasharray = "none"; } });
     });
+    var llanta = slide.querySelector(".llanta-gira");
+    if (llanta) gsap.fromTo(llanta, { rotation: -140, svgOrigin: "380 360" }, { rotation: 0, svgOrigin: "380 360", duration: 2.2, ease: "power3.out" });
+    var foto = slide.querySelector(".foto-portada img");
     var pasos = slide.querySelectorAll(".orden .paso");
     if (pasos.length) gsap.fromTo(pasos, { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: .5, stagger: .1, delay: .2, ease: "power2.out" });
     var captura = fueraDeFragmentos(slide, ".captura");
@@ -150,7 +159,18 @@
 
   Reveal.on("ready", function (e) { entrar(e.currentSlide, null); anterior = e.currentSlide; });
   Reveal.on("slidechanged", function (e) { entrar(e.currentSlide, e.previousSlide); anterior = e.currentSlide; });
-  Reveal.on("fragmentshown", function (e) { (e.fragments || [e.fragment]).forEach(animarGrupo); });
+  Reveal.on("fragmentshown", function (e) { (e.fragments || [e.fragment]).forEach(animarGrupo); moverCamion(); });
+  Reveal.on("fragmenthidden", function () { moverCamion(); });
+
+  /* Piloto: el camión avanza hasta la última fase visible */
+  function moverCamion() {
+    var s = Reveal.getCurrentSlide(); if (!s || !ANIMA) return;
+    var c = s.querySelector(".ruta-camion"); if (!c) return;
+    var vis = s.querySelectorAll(".fase.visible");
+    var destino = vis.length ? vis[vis.length - 1].style.left : "0%";
+    gsap.to(c, { left: destino, duration: 1.1, ease: "power2.inOut" });
+  }
+  Reveal.on("slidechanged", function (e) { var c = e.currentSlide.querySelector(".ruta-camion"); if (c && ANIMA) { c.style.left = "0%"; moverCamion(); } });
 
   /* ---------- Visor de capturas ---------- */
   var visor = document.querySelector(".visor"), visorImg = visor.querySelector("img");

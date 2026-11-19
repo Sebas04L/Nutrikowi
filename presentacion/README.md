@@ -3,7 +3,7 @@
 Propuesta de reestructuración del taller, internalización del mantenimiento preventivo, control de llantas y fortalecimiento administrativo de Logística. Corte de información: noviembre de 2026.
 
 - `index.html`: presentación web interactiva (Reveal.js 5.1, 1920 × 1080, 16:9)
-- `Nutrikowi_Presentacion_Direccion_Nov2026.pdf`: versión para compartir o archivar (25 páginas)
+- `Nutrikowi_Presentacion_Direccion_Nov2026.pdf`: versión para compartir o archivar (26 páginas)
 
 ## Cómo presentarla
 

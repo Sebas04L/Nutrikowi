@@ -24,14 +24,15 @@
 
 :root {
   /* Base */
-  --asfalto: #1C2329;      /* tinta principal */
-  --noche: #1F2B33;        /* fondo de diapositivas oscuras (pizarra azul acero) */
-  --noche-2: #2A3842;      /* superficie elevada en oscuro */
-  --acero: #56646D;        /* texto secundario */
-  --acero-claro: #93A0A8;  /* serie neutra / materiales */
-  --niebla: #C9D0D3;       /* serie neutra clara */
-  --linea: #D8DDDF;        /* hairlines */
-  --papel: #F3F4F2;        /* fondo claro (gris neutro, no crema) */
+  /* Paleta derivada del logo: naranja Nutrikowi + blanco, con grafito cálido como tinta */
+  --asfalto: #24211F;      /* tinta principal (grafito cálido) */
+  --noche: #EE7A17;        /* diapositivas de impacto: campo naranja del logo */
+  --noche-2: #D96A0C;      /* naranja profundo */
+  --acero: #6A615A;        /* texto secundario cálido */
+  --acero-claro: #B4AAA1;  /* serie neutra / materiales */
+  --niebla: #DDD5CD;       /* serie neutra clara */
+  --linea: #E7E1DB;        /* hairlines */
+  --papel: #FFFFFF;        /* fondo blanco, como el logo */
   --blanco: #FFFFFF;
 
   /* Marca */
@@ -57,7 +58,7 @@ html, body { background: var(--papel); }
   width: 1920px; height: 1080px; padding: 0; box-sizing: border-box;
   background: var(--papel);
 }
-.reveal .slides section.oscura { background: var(--noche); color: #EEF1F2; }
+.reveal .slides section.oscura { background: var(--naranja); color: var(--asfalto); }
 .reveal ::selection { background: var(--naranja); color: #fff; }
 
 .reveal h1, .reveal h2, .reveal h3, .reveal p, .reveal ul, .reveal ol, .reveal figure { margin: 0; }
@@ -70,20 +71,20 @@ html, body { background: var(--papel); }
 }
 .titular.grande { font-size: 88px; }
 .bajada { font-size: 32px; line-height: 1.45; color: var(--acero); max-width: 1100px; margin-top: 28px; text-wrap: pretty; }
-.oscura .bajada { color: #B9C4CA; }
+.oscura .bajada { color: rgba(36,33,31,.78); }
 .texto { font-size: 30px; line-height: 1.5; max-width: 62ch; }
 .nota { font-size: 24px; line-height: 1.45; color: var(--acero); }
-.oscura .nota { color: #A9B5BC; }
+.oscura .nota { color: rgba(36,33,31,.75); }
 .fuente {
   position: absolute; left: var(--m); bottom: 52px; right: 360px;
   font-size: 22px; line-height: 1.4; color: var(--acero);
 }
-.oscura .fuente { color: #9AA7AF; }
+.oscura .fuente { color: rgba(36,33,31,.78); }
 .cifra { font-stretch: 112%; font-weight: 650; letter-spacing: -0.02em; line-height: .95; }
 .num { font-variant-numeric: tabular-nums; }
 strong { font-weight: 680; }
 .naranja { color: var(--naranja-tinta); }
-.oscura .naranja { color: var(--naranja); }
+.oscura .naranja { color: #fff; }
 
 /* Marco común de una diapositiva ------------------------------------------- */
 .lienzo { position: absolute; inset: 0; padding: 156px var(--m) 120px; }
@@ -104,10 +105,11 @@ b { font-weight: 680; }
 .riel .relleno { position: absolute; left: 0; top: 0; height: 4px; background: var(--naranja); border-radius: 2px; width: 0; }
 .riel .cap .relleno { right: auto; }
 .riel .folio { padding-top: 12px; padding-left: 32px; font-variant-numeric: tabular-nums; color: var(--acero); font-size: 22px; }
-.oscura .riel { color: #8F9DA6; }
-.oscura .riel .cap::before { background: #3A4A55; }
-.oscura .riel .cap.hecho, .oscura .riel .cap.actual { color: #EEF1F2; }
-.oscura .riel .folio { color: #8F9DA6; }
+.oscura .riel { color: rgba(36,33,31,.6); }
+.oscura .riel .cap::before { background: rgba(255,255,255,.35); }
+.oscura .riel .relleno { background: #fff; }
+.oscura .riel .cap.hecho, .oscura .riel .cap.actual { color: var(--asfalto); }
+.oscura .riel .folio { color: rgba(36,33,31,.7); }
 
 /* ---------- Logo ---------- */
 .logo { display: block; height: auto; }
@@ -122,20 +124,20 @@ b { font-weight: 680; }
 /* ==========================================================================
    Diapositiva 1 · Portada
    ========================================================================== */
-.portada { background: var(--noche) !important; color: #F1F3F4; overflow: hidden; }
-.portada .logo { width: 760px; position: absolute; left: var(--m); top: 132px; }
-.portada .regla { position: absolute; left: 0; right: 0; top: 586px; height: 10px; background: var(--naranja); transform-origin: left center; }
-.portada h1 { position: absolute; left: var(--m); top: 314px; width: 1500px; font-stretch: 122%; font-weight: 730; font-size: 92px; line-height: 1.02; letter-spacing: -0.015em; }
-.portada .sub { position: absolute; left: var(--m); top: 656px; font-size: 36px; line-height: 1.45; color: #C5CED3; max-width: 1180px; }
-.portada .meta { position: absolute; left: var(--m); bottom: 88px; font-size: 26px; color: #9AA7AF; display: flex; gap: 72px; }
-.portada .meta b { display: block; color: #EEF1F2; font-weight: 600; margin-bottom: 6px; }
+.portada { background: var(--naranja) !important; color: var(--asfalto); overflow: hidden; }
+.portada .logo { width: 640px; position: absolute; left: var(--m); top: 128px; }
+.portada .regla { position: absolute; left: 0; right: 0; top: 586px; height: 10px; background: #fff; transform-origin: left center; }
+.portada h1 { position: absolute; left: var(--m); top: 318px; width: 1000px; font-stretch: 120%; font-weight: 760; font-size: 84px; line-height: 1.02; letter-spacing: -0.015em; }
+.portada .sub { position: absolute; left: var(--m); top: 650px; font-size: 32px; line-height: 1.45; color: rgba(36,33,31,.86); max-width: 960px; }
+.portada .meta { position: absolute; left: var(--m); bottom: 88px; font-size: 26px; color: rgba(36,33,31,.78); display: flex; gap: 72px; }
+.portada .meta b { display: block; color: var(--asfalto); font-weight: 600; margin-bottom: 6px; }
 
 /* ==========================================================================
    Diapositiva 2 · Operación
    ========================================================================== */
 .operacion .fila-cifras { display: grid; grid-template-columns: 1.25fr 1fr 1fr 1fr; column-gap: 72px; margin-top: 40px; }
 .operacion .dato .cifra { font-size: 112px; white-space: nowrap; }
-.operacion .dato .cifra .aprox { font-size: .55em; font-weight: 500; vertical-align: .35em; margin-right: .12em; }
+.operacion .dato .cifra .aprox { color: var(--naranja);  font-size: .55em; font-weight: 500; vertical-align: .35em; margin-right: .12em; }
 .operacion .dato .base { height: 6px; background: var(--naranja); margin: 22px 0 22px; border-radius: 3px; transform-origin: left; }
 .operacion .dato .que { font-size: 30px; font-weight: 600; }
 .operacion .dato .det { font-size: 24px; color: var(--acero); margin-top: 8px; line-height: 1.4; }
@@ -161,7 +163,6 @@ svg text { font-family: var(--f); }
 /* Diapositiva 4 · Modelo CAPASA */
 .capasa-hoy .diagrama { display: grid; grid-template-columns: 600px 1fr; column-gap: 96px; align-items: center; margin-top: 12px; }
 .capasa-hoy .grilla-unidades { display: grid; grid-template-columns: repeat(7, 1fr); gap: 12px; }
-.capasa-hoy .u { height: 50px; border-radius: 6px; background: var(--asfalto); }
 .capasa-hoy .u.fuera { background: transparent; border: 2px dashed var(--acero-claro); }
 .capasa-hoy .leyenda-u { display: flex; gap: 32px; white-space: nowrap; margin-top: 24px; font-size: 24px; color: var(--acero); }
 .capasa-hoy .leyenda-u i { display: inline-block; width: 22px; height: 22px; border-radius: 4px; background: var(--asfalto); vertical-align: -3px; margin-right: 10px; }
@@ -188,19 +189,19 @@ svg text { font-family: var(--f); }
    ========================================================================== */
 .dinero .principal { display: grid; grid-template-columns: 1fr 400px; column-gap: 56px; align-items: end; }
 .dinero .gran .cifra { font-size: 150px; color: #fff; white-space: nowrap; }
-.dinero .gran .regla { height: 10px; background: var(--naranja); border-radius: 5px; margin: 26px 0 22px; transform-origin: left; }
-.dinero .gran .que { font-size: 30px; color: #C5CED3; }
-.dinero .mensual { border-left: 1px solid #3A4A55; padding-left: 48px; }
+.dinero .gran .regla { height: 10px; background: #fff; border-radius: 5px; margin: 26px 0 22px; transform-origin: left; }
+.dinero .gran .que { font-size: 30px; color: rgba(36,33,31,.86); }
+.dinero .mensual { border-left: 2px solid rgba(255,255,255,.6); padding-left: 48px; }
 .dinero .mensual .cifra { font-size: 54px; white-space: nowrap; color: #fff; }
-.dinero .mensual p { font-size: 26px; color: #B9C4CA; margin-top: 12px; line-height: 1.4; }
+.dinero .mensual p { font-size: 26px; color: rgba(36,33,31,.86); margin-top: 12px; line-height: 1.4; }
 .dinero .barra-partes { margin-top: 64px; }
 .dinero .barra { display: flex; gap: 4px; height: 28px; }
 .dinero .barra span { display: block; border-radius: 4px; transform-origin: left; }
-.dinero .barra .serv { background: var(--naranja); width: 57.25%; }
-.dinero .barra .mat { background: var(--acero-claro); flex: 1; }
+.dinero .barra .serv { background: #fff; width: 57.25%; }
+.dinero .barra .mat { background: var(--asfalto); flex: 1; }
 .dinero .partes { display: grid; grid-template-columns: 57.25% 1fr; margin-top: 22px; }
-.dinero .partes div { font-size: 26px; color: #C5CED3; line-height: 1.4; padding-right: 32px; }
-.dinero .partes b { display: block; font-size: 44px; font-weight: 640; font-stretch: 110%; color: #fff; margin-bottom: 4px; }
+.dinero .partes div { font-size: 26px; color: rgba(36,33,31,.88); line-height: 1.4; padding-right: 32px; }
+.dinero .partes b { display: block; font-size: 44px; font-weight: 680; font-stretch: 110%; color: var(--asfalto); margin-bottom: 4px; }
 .dinero .partes i { font-style: normal; display: inline-block; width: 18px; height: 18px; border-radius: 4px; margin-right: 10px; vertical-align: -1px; }
 
 /* ==========================================================================
@@ -277,9 +278,10 @@ svg text { font-family: var(--f); }
 .cinco-s b, .tres-notas b { display: block; font-size: 27px; color: var(--asfalto); margin-bottom: 4px; }
 
 /* Portada: fotografía real del patio */
-.portada .foto-portada { position: absolute; top: 0; right: 0; bottom: 0; width: 860px; overflow: hidden; }
+.portada .foto-portada { position: absolute; top: 0; right: 0; bottom: 0; width: 760px; overflow: hidden; }
+.portada .foto-portada img, .portada .foto-portada video { position: absolute; inset: 0; }
 .portada .foto-portada img { width: 100%; height: 100%; object-fit: cover; object-position: 62% 50%; filter: saturate(.85); }
-.portada .foto-portada::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, var(--noche) 0%, rgba(31,43,51,.55) 38%, rgba(31,43,51,.08) 100%); }
+.portada .foto-portada video { width: 100%; height: 100%; object-fit: cover; object-position: 62% 50%; }
 .portada .regla { z-index: 1; }
 
 /* ==========================================================================
@@ -434,13 +436,13 @@ svg text { font-family: var(--f); }
    Diapositiva 22 · Decisiones (oscura)
    ========================================================================== */
 .decisiones .lista { display: grid; grid-template-columns: 1fr 1fr; column-gap: 88px; margin-top: 8px; }
-.decisiones .d { display: grid; grid-template-columns: 64px 1fr; padding: 28px 0; border-top: 1px solid #3A4A55; align-items: baseline; }
-.decisiones .d .n { font-size: 28px; color: var(--naranja); font-weight: 650; font-variant-numeric: tabular-nums; }
-.decisiones .d h3 { font-size: 31px; font-weight: 640; font-stretch: 106%; line-height: 1.25; color: #F1F3F4; }
-.decisiones .d p { font-size: 23px; color: #A9B5BC; margin-top: 6px; line-height: 1.4; }
-.decisiones .d.primera h3 { color: #fff; }
+.decisiones .d { display: grid; grid-template-columns: 64px 1fr; padding: 28px 0; border-top: 2px solid rgba(255,255,255,.55); align-items: baseline; }
+.decisiones .d .n { font-size: 30px; color: #fff; font-weight: 650; font-variant-numeric: tabular-nums; }
+.decisiones .d h3 { font-size: 31px; font-weight: 680; font-stretch: 106%; line-height: 1.25; color: var(--asfalto); }
+.decisiones .d p { font-size: 23px; color: rgba(36,33,31,.82); margin-top: 6px; line-height: 1.4; }
+
 .decisiones .cierre { position: absolute; left: var(--m); right: 220px; bottom: 64px; display: flex; justify-content: space-between; align-items: end; }
-.decisiones .cierre p { font-size: 30px; color: #DDE3E6; max-width: 1180px; line-height: 1.4; }
+.decisiones .cierre p { font-size: 32px; color: var(--asfalto); max-width: 1180px; line-height: 1.4; }
 .decisiones .cierre img { width: 300px; }
 
 /* ==========================================================================
@@ -475,3 +477,58 @@ html.print-pdf .reveal .slides section.oscura, html.print-pdf .reveal .slides se
 html.print-pdf .fragment { opacity: 1 !important; transform: none !important; }
 html.print-pdf .reveal .controls { display: none !important; }
 html.print-pdf .reveal .slides .pdf-page { background: var(--papel); }
+
+/* ==========================================================================
+   Rotulado Nutrikowi: cifras con el mismo trazo del logo
+   Capas: contorno naranja exterior (::before) · filete blanco (::after) · relleno naranja (texto)
+   ========================================================================== */
+.rotulo { position: relative; isolation: isolate; color: var(--naranja); font-weight: 780; font-stretch: 116%; letter-spacing: .035em; }
+.rotulo::before, .rotulo::after { content: attr(data-t); position: absolute; left: 0; top: 0; white-space: nowrap; pointer-events: none; }
+.rotulo::before { z-index: -2; color: var(--naranja); -webkit-text-stroke: .15em var(--naranja); }
+.rotulo::after { z-index: -1; color: var(--naranja); -webkit-text-stroke: .075em #fff; }
+.rotulo .aprox { position: relative; }
+.oscura .rotulo, .portada .rotulo { color: #fff; }
+.oscura .rotulo::before { color: #fff; -webkit-text-stroke-color: #fff; }
+.oscura .rotulo::after { color: #fff; -webkit-text-stroke-color: var(--naranja); }
+.simulador .resultado-sim .cifra.negativo::before, .simulador .resultado-sim .cifra.negativo::after { display: none; }
+
+/* ==========================================================================
+   Simulador de internalización
+   ========================================================================== */
+.simulador .cuerpo { display: grid; grid-template-columns: 760px 1fr; column-gap: 96px; align-items: start; }
+.simulador .control { margin-bottom: 40px; }
+.simulador label, .simulador .etq { display: block; font-size: 26px; font-weight: 620; margin-bottom: 14px; }
+.simulador .valor-control output { font-size: 64px; font-weight: 760; font-stretch: 118%; color: var(--naranja-tinta); line-height: 1; }
+.simulador .pista { position: relative; margin-top: 18px; padding-bottom: 34px; }
+.simulador input[type=range] { -webkit-appearance: none; appearance: none; width: 100%; height: 14px; border-radius: 7px; background: linear-gradient(90deg, var(--naranja) var(--p,100%), var(--linea) var(--p,100%)); outline: none; cursor: pointer; }
+.simulador input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; width: 44px; height: 44px; border-radius: 50%; background: #fff; border: 6px solid var(--naranja); box-shadow: 0 2px 8px rgba(36,33,31,.25); }
+.simulador input[type=range]::-moz-range-thumb { width: 34px; height: 34px; border-radius: 50%; background: #fff; border: 6px solid var(--naranja); }
+.simulador input[type=range]:focus-visible { outline: 3px solid var(--asfalto); outline-offset: 10px; }
+.simulador .marca-eq { position: absolute; top: -10px; width: 3px; height: 34px; background: var(--asfalto); transform: translateX(-1px); transition: left .4s var(--ease); }
+.simulador .marca-eq span { position: absolute; top: 42px; left: 50%; transform: translateX(-50%); font-size: 20px; color: var(--acero); white-space: nowrap; }
+.simulador .segmentado { display: inline-flex; border: 2px solid var(--asfalto); border-radius: 999px; padding: 4px; gap: 4px; }
+.simulador .segmentado button { font: inherit; font-size: 24px; font-weight: 600; padding: 12px 26px; border-radius: 999px; border: 0; background: transparent; color: var(--asfalto); cursor: pointer; min-height: 52px; transition: background .2s, color .2s; }
+.simulador .segmentado button[aria-checked="true"] { background: var(--naranja); color: var(--asfalto); }
+.simulador .segmentado button:focus-visible { outline: 3px solid var(--asfalto); outline-offset: 3px; }
+.simulador .nota { font-size: 25px; max-width: 700px; }
+.simulador .resultado-sim .cifra { font-size: 96px; margin: 14px 0 12px; white-space: nowrap; }
+.simulador .resultado-sim .cifra.negativo { color: var(--asfalto); }
+.simulador .anual { font-size: 28px; color: var(--acero); }
+.simulador .barras-sim { margin-top: 48px; border-top: 2px solid var(--asfalto); padding-top: 12px; }
+.simulador .fila { display: grid; grid-template-columns: 250px 1fr 210px; align-items: center; column-gap: 20px; padding: 14px 0; border-bottom: 1px solid var(--linea); }
+.simulador .fila .lbl { font-size: 24px; }
+.simulador .fila .v { font-size: 25px; font-weight: 640; text-align: right; font-variant-numeric: tabular-nums; }
+.simulador .fila .b { height: 26px; position: relative; }
+.simulador .fila .b i { position: absolute; left: 0; top: 0; bottom: 0; border-radius: 4px; transition: width .5s var(--ease); }
+.simulador .fila .b i.pos { background: var(--naranja); }
+.simulador .fila .b i.neg { background: var(--asfalto); }
+.simulador .fila .b i.trama { background: repeating-linear-gradient(45deg, var(--acero-claro) 0 5px, #fff 5px 10px); border: 2px solid var(--acero); }
+
+/* Flotilla con pictogramas */
+.capasa-hoy .grilla-unidades { grid-template-columns: repeat(7, 1fr); gap: 18px 10px; }
+.capasa-hoy .camion { width: 100%; height: auto; display: block; }
+.capasa-hoy .leyenda-u i { background: var(--naranja); }
+
+/* Piloto: camión que recorre las fases */
+.piloto .ruta-camion { position: absolute; top: -78px; left: 66.67%; width: 120px; transform: translateX(-4px); z-index: 2; }
+.piloto .ruta-camion svg { width: 120px; height: auto; display: block; }
