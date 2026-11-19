@@ -3,7 +3,7 @@
 Propuesta de reestructuración del taller, internalización del mantenimiento preventivo, control de llantas y fortalecimiento administrativo de Logística. Corte de información: noviembre de 2026.
 
 - `index.html`: presentación web interactiva (Reveal.js 5.1, 1920 × 1080, 16:9)
-- `Nutrikowi_Presentacion_Direccion_Nov2026.pdf`: versión para compartir o archivar (23 páginas)
+- `Nutrikowi_Presentacion_Direccion_Nov2026.pdf`: versión para compartir o archivar (25 páginas)
 
 ## Cómo presentarla
 
@@ -44,7 +44,7 @@ Requiere Playwright. Como alternativa, abra `http://localhost:8080/?print-pdf` e
 css/deck.css     Identidad visual: colores, tipografía y composición por diapositiva
 js/charts.js     Gráficas y diagramas SVG generados a partir de las cifras del brief
 js/deck.js       Riel narrativo, navegación, animaciones (GSAP) y visor de capturas
-assets/          Logotipo y capturas reales del prototipo de la plataforma
+assets/          Logotipo, fotografías del taller (hoy y propuesta conceptual) y capturas del prototipo
 vendor/          Reveal.js, GSAP y la fuente Archivo (licencias incluidas)
 ```
 
