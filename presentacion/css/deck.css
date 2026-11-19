@@ -545,3 +545,11 @@ html.print-pdf .comparativo .foto.con-video img { display: block; }
   .comparativo .foto.con-video video { display: none; }
   .comparativo .foto.con-video img { display: block; }
 }
+
+/* Tejabán: un solo video grande con notas al lado */
+.tejaban { display: grid; grid-template-columns: 1180px 1fr; column-gap: 64px; align-items: start; }
+.comparativo .tejaban .foto video, .comparativo .tejaban .foto img { height: 620px; }
+.tejaban .marca-foto + .marca-foto { margin-left: -6px; }
+.tejaban .notas-lado div { font-size: 25px; line-height: 1.45; color: var(--acero); padding: 22px 0; border-top: 2px solid var(--asfalto); }
+.tejaban .notas-lado div + div { border-top: 1px solid var(--linea); }
+.tejaban .notas-lado b { display: block; font-size: 29px; color: var(--asfalto); margin-bottom: 6px; }
