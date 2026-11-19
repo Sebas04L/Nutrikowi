@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8"><title>Almacén 5S</title>
+<style>
+@font-face { font-family: "Archivo"; src: url("archivo.woff2") format("woff2-variations"); font-weight: 100 900; font-stretch: 62% 125%; }
+html, body { margin: 0; width: 1920px; height: 1080px; overflow: hidden; background: #111; font-family: "Archivo", sans-serif; }
+canvas#gl { position: absolute; inset: 0; width: 1920px; height: 1080px; }
+.capa { position: absolute; inset: 0; pointer-events: none; }
+#titulo { background: #EE7A17; display: flex; flex-direction: column; justify-content: center; padding-left: 128px; }
+#titulo img { width: 520px; margin-bottom: 64px; }
+#titulo h1 { margin: 0; font-size: 104px; line-height: 1.02; font-stretch: 120%; font-weight: 780; color: #24211F; }
+#titulo h1 span { color: #fff; }
+#titulo p { margin: 44px 0 0; font-size: 38px; color: #24211F; font-weight: 500; max-width: 1400px; }
+#riel { position: absolute; top: 52px; right: 64px; background: rgba(255,255,255,.92); border-radius: 16px; padding: 18px 22px 14px; display: flex; gap: 12px; }
+#riel div { width: 150px; font-size: 22px; color: #6A615A; }
+#riel div i { display: block; height: 8px; border-radius: 4px; background: #DDD5CD; margin-bottom: 10px; }
+#riel div.on { color: #24211F; } #riel div.on i { background: #EE7A17; }
+#riel div.actual { font-weight: 680; }
+#panel { position: absolute; left: 64px; bottom: 64px; background: rgba(255,255,255,.96); border-radius: 18px; padding: 30px 46px 32px 58px; border-left: 12px solid #EE7A17; max-width: 1000px; }
+#panel .paso { font-size: 26px; font-weight: 650; color: #B0540A; }
+#panel h2 { margin: 6px 0 10px; font-size: 72px; font-stretch: 118%; font-weight: 760; color: #24211F; line-height: 1.05; }
+#panel p { margin: 0; font-size: 31px; line-height: 1.42; color: #6A615A; }
+#marca { position: absolute; left: 64px; top: 52px; background: rgba(255,255,255,.94); border: 3px solid #B0540A; color: #B0540A; font-size: 26px; font-weight: 650; padding: 8px 22px; border-radius: 30px; }
+#fin { background: rgba(238,122,23,.0); display: flex; flex-direction: column; justify-content: flex-end; padding: 0 0 96px 128px; }
+#fin .caja { background: rgba(255,255,255,.96); border-radius: 18px; padding: 36px 52px; border-left: 12px solid #EE7A17; max-width: 1240px; }
+#fin h2 { margin: 0 0 12px; font-size: 64px; font-stretch: 118%; font-weight: 760; color: #24211F; }
+#fin p { margin: 0; font-size: 31px; color: #6A615A; line-height: 1.42; }
+#fin img { width: 260px; margin-top: 22px; }
+</style></head>
+<body>
+<canvas id="gl" width="1920" height="1080"></canvas>
+<div id="marca" class="capa" style="inset:auto;">Propuesta conceptual · 5S</div>
+<div id="riel"></div>
+<div id="panel"><div class="paso"></div><h2></h2><p></p></div>
+<div id="fin" class="capa"><div class="caja"><h2>Mismo almacén, con 5S</h2><p>Los estantes, el banco de trabajo, el pizarrón y el tablero de herramientas se quedan donde están hoy. Cambia cómo se usan.</p><img src="logo.png" alt=""></div></div>
+<div id="titulo" class="capa"><img src="logo-blanco.png" alt=""><h1>Así quedaría el almacén<br><span>con las 5S aplicadas</span></h1><p>Del desorden al orden, con la distribución actual: estantes, banco y pizarrón en su lugar.</p></div>
+<script type="module" src="scene.js"></script>
+</body></html>
