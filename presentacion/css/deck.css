@@ -1,0 +1,456 @@
+/* ==========================================================================
+   Nutrikowi · Presentación ejecutiva para Dirección
+   Sistema visual: asfalto + acero + naranja Nutrikowi (#EE7A17, tomado del logo)
+   Tipografía: Archivo variable (ancho expandido para titulares, normal para texto)
+   Lienzo: 1920 × 1080 (16:9)
+   ========================================================================== */
+
+@font-face {
+  font-family: "Archivo";
+  src: url("../vendor/fonts/archivo-latin-wdth-normal.woff2") format("woff2-variations");
+  font-weight: 100 900;
+  font-stretch: 62% 125%;
+  font-display: block;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Archivo";
+  src: url("../vendor/fonts/archivo-latin-ext-wdth-normal.woff2") format("woff2-variations");
+  font-weight: 100 900;
+  font-stretch: 62% 125%;
+  font-display: block;
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+:root {
+  /* Base */
+  --asfalto: #1C2329;      /* tinta principal */
+  --noche: #1F2B33;        /* fondo de diapositivas oscuras (pizarra azul acero) */
+  --noche-2: #2A3842;      /* superficie elevada en oscuro */
+  --acero: #56646D;        /* texto secundario */
+  --acero-claro: #93A0A8;  /* serie neutra / materiales */
+  --niebla: #C9D0D3;       /* serie neutra clara */
+  --linea: #D8DDDF;        /* hairlines */
+  --papel: #F3F4F2;        /* fondo claro (gris neutro, no crema) */
+  --blanco: #FFFFFF;
+
+  /* Marca */
+  --naranja: #EE7A17;      /* acento: dinero, avance, decisión */
+  --naranja-tinta: #B0540A;/* naranja para texto pequeño sobre claro (4.6:1) */
+  --naranja-velo: #FBE7D5; /* fondo suave para resaltar */
+
+  /* Estados (reservados, siempre con texto) */
+  --ok: #2F7D57;
+  --alerta: #A86A00;
+
+  --f: "Archivo", "Helvetica Neue", Arial, sans-serif;
+  --ease: cubic-bezier(.2,.7,.2,1);
+
+  --m: 128px;              /* margen lateral del lienzo */
+}
+
+/* ---------- Reveal base ---------- */
+html, body { background: var(--papel); }
+.reveal { font-family: var(--f); font-size: 30px; color: var(--asfalto); font-stretch: 100%; }
+.reveal .slides { text-align: left; }
+.reveal .slides section {
+  width: 1920px; height: 1080px; padding: 0; box-sizing: border-box;
+  background: var(--papel);
+}
+.reveal .slides section.oscura { background: var(--noche); color: #EEF1F2; }
+.reveal ::selection { background: var(--naranja); color: #fff; }
+
+.reveal h1, .reveal h2, .reveal h3, .reveal p, .reveal ul, .reveal ol, .reveal figure { margin: 0; }
+.reveal h1, .reveal h2, .reveal h3 { font-family: var(--f); text-transform: none; letter-spacing: 0; color: inherit; text-shadow: none; }
+
+/* Tipografía ---------------------------------------------------------------- */
+.titular {
+  font-stretch: 116%; font-weight: 720; font-size: 56px; line-height: 1.08;
+  letter-spacing: -0.012em; max-width: 1640px; text-wrap: pretty;
+}
+.titular.grande { font-size: 88px; }
+.bajada { font-size: 32px; line-height: 1.45; color: var(--acero); max-width: 1100px; margin-top: 28px; text-wrap: pretty; }
+.oscura .bajada { color: #B9C4CA; }
+.texto { font-size: 30px; line-height: 1.5; max-width: 62ch; }
+.nota { font-size: 24px; line-height: 1.45; color: var(--acero); }
+.oscura .nota { color: #A9B5BC; }
+.fuente {
+  position: absolute; left: var(--m); bottom: 52px; right: 360px;
+  font-size: 22px; line-height: 1.4; color: var(--acero);
+}
+.oscura .fuente { color: #9AA7AF; }
+.cifra { font-stretch: 112%; font-weight: 650; letter-spacing: -0.02em; line-height: .95; }
+.num { font-variant-numeric: tabular-nums; }
+strong { font-weight: 680; }
+.naranja { color: var(--naranja-tinta); }
+.oscura .naranja { color: var(--naranja); }
+
+/* Marco común de una diapositiva ------------------------------------------- */
+.lienzo { position: absolute; inset: 0; padding: 156px var(--m) 120px; }
+.cabeza { margin-bottom: 48px; }
+svg[data-chart] { width: 100%; height: auto; display: block; }
+b { font-weight: 680; }
+
+/* ---------- Riel narrativo (progreso por capítulo) ---------- */
+.riel {
+  position: absolute; left: var(--m); right: var(--m); top: 56px; height: 52px;
+  display: grid; grid-template-columns: repeat(7, 1fr) auto; align-items: start; column-gap: 0;
+  font-size: 22px; color: var(--acero); pointer-events: none;
+}
+.riel .cap { position: relative; padding-top: 18px; white-space: nowrap; }
+.riel .cap::before { content: ""; position: absolute; left: 0; right: 10px; top: 0; height: 4px; background: var(--linea); border-radius: 2px; }
+.riel .cap.hecho { color: var(--asfalto); }
+.riel .cap.actual { color: var(--asfalto); font-weight: 650; }
+.riel .relleno { position: absolute; left: 0; top: 0; height: 4px; background: var(--naranja); border-radius: 2px; width: 0; }
+.riel .cap .relleno { right: auto; }
+.riel .folio { padding-top: 12px; padding-left: 32px; font-variant-numeric: tabular-nums; color: var(--acero); font-size: 22px; }
+.oscura .riel { color: #8F9DA6; }
+.oscura .riel .cap::before { background: #3A4A55; }
+.oscura .riel .cap.hecho, .oscura .riel .cap.actual { color: #EEF1F2; }
+.oscura .riel .folio { color: #8F9DA6; }
+
+/* ---------- Logo ---------- */
+.logo { display: block; height: auto; }
+.marca-pie { position: absolute; right: var(--m); bottom: 52px; width: 190px; opacity: .9; }
+
+/* ---------- Fragmentos: aparición sobria ---------- */
+.reveal .slides section .fragment { opacity: 0; transform: translateY(14px); transition: opacity .55s var(--ease), transform .55s var(--ease); visibility: visible; }
+.reveal .slides section .fragment.visible { opacity: 1; transform: none; }
+.reveal .slides section .fragment.solo-opacidad { transform: none; }
+.reveal .slides section .fragment.atenuar.visible:not(.current-fragment) { opacity: 1; }
+
+/* ==========================================================================
+   Diapositiva 1 · Portada
+   ========================================================================== */
+.portada { background: var(--noche) !important; color: #F1F3F4; overflow: hidden; }
+.portada .logo { width: 760px; position: absolute; left: var(--m); top: 132px; }
+.portada .regla { position: absolute; left: 0; right: 0; top: 586px; height: 10px; background: var(--naranja); transform-origin: left center; }
+.portada h1 { position: absolute; left: var(--m); top: 314px; width: 1500px; font-stretch: 122%; font-weight: 730; font-size: 92px; line-height: 1.02; letter-spacing: -0.015em; }
+.portada .sub { position: absolute; left: var(--m); top: 656px; font-size: 36px; line-height: 1.45; color: #C5CED3; max-width: 1180px; }
+.portada .meta { position: absolute; left: var(--m); bottom: 88px; font-size: 26px; color: #9AA7AF; display: flex; gap: 72px; }
+.portada .meta b { display: block; color: #EEF1F2; font-weight: 600; margin-bottom: 6px; }
+
+/* ==========================================================================
+   Diapositiva 2 · Operación
+   ========================================================================== */
+.operacion .fila-cifras { display: grid; grid-template-columns: 1.25fr 1fr 1fr 1fr; column-gap: 72px; margin-top: 40px; }
+.operacion .dato .cifra { font-size: 112px; white-space: nowrap; }
+.operacion .dato .cifra .aprox { font-size: .55em; font-weight: 500; vertical-align: .35em; margin-right: .12em; }
+.operacion .dato .base { height: 6px; background: var(--naranja); margin: 22px 0 22px; border-radius: 3px; transform-origin: left; }
+.operacion .dato .que { font-size: 30px; font-weight: 600; }
+.operacion .dato .det { font-size: 24px; color: var(--acero); margin-top: 8px; line-height: 1.4; }
+.operacion .rutas { margin-top: 56px; display: grid; grid-template-columns: repeat(3, 1fr); column-gap: 72px; border-top: 1px solid var(--linea); padding-top: 36px; }
+.operacion .rutas p { font-size: 26px; line-height: 1.45; color: var(--acero); }
+.operacion .rutas b { display: block; color: var(--asfalto); font-size: 28px; margin-bottom: 6px; }
+
+/* ==========================================================================
+   Gráficas SVG (comunes)
+   ========================================================================== */
+svg text { font-family: var(--f); }
+.eje { stroke: var(--linea); stroke-width: 1.5; }
+.eje-t { fill: var(--acero); font-size: 22px; }
+.val-t { fill: var(--asfalto); font-size: 24px; font-weight: 600; }
+.cat-t { fill: var(--asfalto); font-size: 24px; }
+.sd-t { fill: var(--acero); font-size: 22px; }
+
+/* Diapositiva 3 · Gasto logístico */
+.logistica .grafica { display: grid; grid-template-columns: 1fr 440px; column-gap: 88px; align-items: start; }
+.logistica .lectura .cifra { font-size: 104px; white-space: nowrap; }
+.logistica .lectura p { margin-top: 20px; }
+
+/* Diapositiva 4 · Modelo CAPASA */
+.capasa-hoy .diagrama { display: grid; grid-template-columns: 600px 1fr; column-gap: 96px; align-items: center; margin-top: 12px; }
+.capasa-hoy .grilla-unidades { display: grid; grid-template-columns: repeat(7, 1fr); gap: 12px; }
+.capasa-hoy .u { height: 50px; border-radius: 6px; background: var(--asfalto); }
+.capasa-hoy .u.fuera { background: transparent; border: 2px dashed var(--acero-claro); }
+.capasa-hoy .leyenda-u { display: flex; gap: 32px; white-space: nowrap; margin-top: 24px; font-size: 24px; color: var(--acero); }
+.capasa-hoy .leyenda-u i { display: inline-block; width: 22px; height: 22px; border-radius: 4px; background: var(--asfalto); vertical-align: -3px; margin-right: 10px; }
+.capasa-hoy .leyenda-u i.fuera { background: transparent; border: 2px dashed var(--acero-claro); }
+.capasa-hoy .hechos { display: grid; grid-template-columns: 1fr 1fr; gap: 48px 64px; }
+.capasa-hoy .hecho .cifra { font-size: 84px; }
+.capasa-hoy .hecho p { font-size: 26px; color: var(--acero); margin-top: 10px; line-height: 1.4; }
+.capasa-hoy .esquema { margin-top: 56px; display: flex; gap: 0; border-top: 1px solid var(--linea); padding-top: 32px; }
+.capasa-hoy .esquema div { flex: 1; font-size: 26px; line-height: 1.4; padding-right: 40px; }
+.capasa-hoy .esquema b { display: block; margin-bottom: 6px; }
+
+/* ==========================================================================
+   Diapositiva 5 · Problema (registro de brechas)
+   ========================================================================== */
+.brechas .lista { margin-top: 8px; border-top: 2px solid var(--asfalto); }
+.brechas .renglon { display: grid; grid-template-columns: 64px 1fr 600px; column-gap: 40px; align-items: baseline; padding: 18px 0; border-bottom: 1px solid var(--linea); }
+.brechas .renglon .n { font-size: 26px; color: var(--acero); font-variant-numeric: tabular-nums; }
+.brechas .renglon h3 { font-size: 31px; font-weight: 650; font-stretch: 108%; line-height: 1.2; }
+.brechas .renglon .evid { font-size: 24px; color: var(--acero); margin-top: 6px; line-height: 1.4; }
+.brechas .renglon .costo { font-size: 26px; line-height: 1.4; color: var(--asfalto); padding-left: 28px; border-left: 4px solid var(--naranja); }
+
+/* ==========================================================================
+   Diapositiva 6 · CAPASA en dinero (oscura)
+   ========================================================================== */
+.dinero .principal { display: grid; grid-template-columns: 1fr 400px; column-gap: 56px; align-items: end; }
+.dinero .gran .cifra { font-size: 150px; color: #fff; white-space: nowrap; }
+.dinero .gran .regla { height: 10px; background: var(--naranja); border-radius: 5px; margin: 26px 0 22px; transform-origin: left; }
+.dinero .gran .que { font-size: 30px; color: #C5CED3; }
+.dinero .mensual { border-left: 1px solid #3A4A55; padding-left: 48px; }
+.dinero .mensual .cifra { font-size: 54px; white-space: nowrap; color: #fff; }
+.dinero .mensual p { font-size: 26px; color: #B9C4CA; margin-top: 12px; line-height: 1.4; }
+.dinero .barra-partes { margin-top: 64px; }
+.dinero .barra { display: flex; gap: 4px; height: 28px; }
+.dinero .barra span { display: block; border-radius: 4px; transform-origin: left; }
+.dinero .barra .serv { background: var(--naranja); width: 57.25%; }
+.dinero .barra .mat { background: var(--acero-claro); flex: 1; }
+.dinero .partes { display: grid; grid-template-columns: 57.25% 1fr; margin-top: 22px; }
+.dinero .partes div { font-size: 26px; color: #C5CED3; line-height: 1.4; padding-right: 32px; }
+.dinero .partes b { display: block; font-size: 44px; font-weight: 640; font-stretch: 110%; color: #fff; margin-bottom: 4px; }
+.dinero .partes i { font-style: normal; display: inline-block; width: 18px; height: 18px; border-radius: 4px; margin-right: 10px; vertical-align: -1px; }
+
+/* ==========================================================================
+   Diapositiva 7 · Llantas
+   ========================================================================== */
+.llantas .cuerpo { display: grid; grid-template-columns: 1fr 500px; column-gap: 72px; align-items: start; }
+.llantas .bases { display: grid; gap: 0; border-top: 2px solid var(--asfalto); }
+.llantas .base { padding: 20px 0; border-bottom: 1px solid var(--linea); }
+.llantas .base .cifra { font-size: 58px; white-space: nowrap; }
+.llantas .base p { font-size: 24px; color: var(--acero); margin-top: 10px; line-height: 1.4; }
+.llantas .base .t { font-size: 26px; font-weight: 600; color: var(--asfalto); margin-bottom: 10px; }
+.llantas .aviso { margin-top: 24px; font-size: 26px; line-height: 1.45; padding: 22px 26px; background: var(--naranja-velo); border-radius: 8px; }
+
+/* ==========================================================================
+   Diapositiva 8 · Seis cambios
+   ========================================================================== */
+.cambios .rejilla { display: grid; grid-template-columns: repeat(3, 1fr); column-gap: 64px; row-gap: 44px; margin-top: 16px; }
+.cambios .cambio { border-top: 4px solid var(--asfalto); padding-top: 22px; }
+.cambios .cambio .n { font-size: 24px; color: var(--acero); font-variant-numeric: tabular-nums; }
+.cambios .cambio h3 { font-size: 32px; font-weight: 680; font-stretch: 110%; margin: 10px 0 12px; line-height: 1.15; }
+.cambios .cambio p { font-size: 25px; line-height: 1.45; color: var(--acero); }
+.cambios .cambio .palanca { margin-top: 14px; font-size: 24px; color: var(--naranja-tinta); font-weight: 600; }
+
+/* ==========================================================================
+   Diapositiva 9 · Turnos y supervisor
+   ========================================================================== */
+.turnos .cuerpo { display: grid; grid-template-columns: 1fr 520px; column-gap: 88px; align-items: start; }
+.turnos .valor { border-left: 4px solid var(--naranja); padding-left: 36px; }
+.turnos .valor h3 { font-size: 34px; font-weight: 680; font-stretch: 108%; margin-bottom: 18px; }
+.turnos .valor li { font-size: 26px; line-height: 1.45; margin-bottom: 16px; }
+.turnos .valor ul { padding-left: 1.1em; }
+.turnos .valor li::marker { color: var(--naranja); }
+
+/* ==========================================================================
+   Diapositiva 10 · Orden de trabajo
+   ========================================================================== */
+.orden .flujo { position: relative; margin-top: 40px; }
+.orden .pasos { display: grid; grid-template-columns: repeat(9, 1fr); column-gap: 14px; position: relative; }
+.orden .pasos::before { content: ""; position: absolute; left: 14px; right: 14px; top: 13px; height: 3px; background: var(--linea); }
+.orden .paso { position: relative; }
+.orden .paso .pt { width: 30px; height: 30px; border-radius: 50%; background: var(--papel); border: 3px solid var(--asfalto); position: relative; z-index: 1; }
+.orden .paso.registra .pt { background: var(--naranja); border-color: var(--naranja); }
+.orden .paso .n { font-size: 22px; color: var(--acero); margin-top: 20px; font-variant-numeric: tabular-nums; }
+.orden .paso h3 { font-size: 29px; font-weight: 680; font-stretch: 106%; margin-top: 4px; }
+.orden .paso p { font-size: 22px; line-height: 1.4; color: var(--acero); margin-top: 8px; padding-right: 6px; }
+.orden .paso .quien { font-size: 21px; color: var(--asfalto); margin-top: 10px; }
+.orden .progreso-flujo { position: absolute; left: 14px; top: 13px; height: 3px; background: var(--naranja); width: calc(100% - 28px); transform-origin: left; }
+.orden .resultado { margin-top: 72px; display: grid; grid-template-columns: repeat(4, 1fr); column-gap: 56px; border-top: 1px solid var(--linea); padding-top: 32px; }
+.orden .resultado div { font-size: 25px; line-height: 1.45; color: var(--acero); }
+.orden .resultado b { display: block; color: var(--asfalto); font-size: 28px; margin-bottom: 6px; }
+
+/* ==========================================================================
+   Diapositiva 11 · Inventario y Compras (carriles)
+   ========================================================================== */
+.compras .cuerpo { display: grid; grid-template-columns: 1fr 440px; column-gap: 64px; align-items: start; }
+.compras .valor { border-left: 4px solid var(--naranja); padding-left: 32px; }
+.compras .valor p { font-size: 26px; line-height: 1.45; margin-bottom: 20px; }
+.compras .formula { margin-top: 8px; font-size: 26px; line-height: 1.45; background: var(--blanco); border: 1px solid var(--linea); border-radius: 8px; padding: 20px 24px; }
+.compras .formula b { font-stretch: 110%; }
+
+/* ==========================================================================
+   Diapositiva 12 · Llantas: ciclo de vida
+   ========================================================================== */
+.ciclo .cuerpo { display: grid; grid-template-columns: 820px 1fr; column-gap: 96px; align-items: center; }
+.ciclo .formula-grande { font-stretch: 112%; font-weight: 650; font-size: 54px; line-height: 1.2; }
+.ciclo .formula-grande .div { display: block; border-top: 4px solid var(--asfalto); margin: 12px 0; width: 640px; }
+.ciclo .formula-grande small { font-size: 30px; font-weight: 500; color: var(--acero); font-stretch: 100%; }
+.ciclo .registro { margin-top: 48px; font-size: 25px; line-height: 1.5; color: var(--acero); }
+.ciclo .registro b { color: var(--asfalto); }
+
+/* ==========================================================================
+   Diapositiva 13 · Encargado administrativo
+   ========================================================================== */
+.encargado .cuerpo { display: grid; grid-template-columns: 760px 1fr; column-gap: 96px; align-items: start; }
+.encargado .hace li, .encargado .no li { font-size: 26px; line-height: 1.4; margin-bottom: 14px; }
+.encargado .hace ul, .encargado .no ul { padding-left: 1.1em; }
+.encargado .hace li::marker { color: var(--naranja); }
+.encargado h3 { font-size: 30px; font-weight: 680; font-stretch: 108%; margin-bottom: 18px; }
+.encargado .no { margin-top: 36px; padding-top: 28px; border-top: 1px solid var(--linea); }
+.encargado .no li { color: var(--acero); }
+
+/* ==========================================================================
+   Diapositivas 14–15 · Plataforma
+   ========================================================================== */
+.plataforma .mosaico { display: grid; grid-template-columns: 1.55fr 1fr; grid-template-rows: auto auto auto; gap: 28px 36px; }
+.captura { margin: 0; position: relative; cursor: zoom-in; }
+.captura img { display: block; width: 100%; height: auto; border-radius: 10px; border: 1px solid var(--linea); box-shadow: 0 1px 0 rgba(28,35,41,.04), 0 18px 40px -24px rgba(28,35,41,.35); }
+.captura figcaption { font-size: 22px; color: var(--acero); margin-top: 10px; line-height: 1.35; }
+.captura figcaption b { color: var(--asfalto); }
+.plataforma .principal-cap { grid-row: 1 / span 3; }
+.plataforma .principal-cap img { height: 588px; object-fit: cover; object-position: left top; }
+.plataforma .lateral-cap img { height: 150px; object-fit: cover; object-position: left top; }
+.plataforma .mosaico { gap: 20px 36px; }
+.plataforma .lateral { display: grid; gap: 22px; }
+.etiqueta-demo { display: inline-block; font-size: 22px; padding: 6px 14px; border-radius: 999px; border: 1.5px solid var(--naranja-tinta); color: var(--naranja-tinta); margin-left: 12px; vertical-align: 4px; font-weight: 600; }
+
+.conecta .cadena { display: grid; grid-template-columns: repeat(5, 1fr); column-gap: 28px; margin-top: 20px; align-items: start; }
+.conecta .eslabon { position: relative; }
+.conecta .eslabon .mini { height: 196px; overflow: hidden; border-radius: 8px; border: 1px solid var(--linea); background: #fff; }
+.conecta .eslabon .mini img { width: 100%; display: block; }
+.conecta .eslabon h3 { font-size: 30px; font-weight: 680; font-stretch: 108%; margin-top: 20px; }
+.conecta .eslabon p { font-size: 23px; line-height: 1.4; color: var(--acero); margin-top: 8px; }
+.conecta .eslabon .dato { font-size: 23px; color: var(--naranja-tinta); margin-top: 10px; font-weight: 600; }
+.conecta .flecha { position: absolute; right: -24px; top: 86px; width: 20px; height: 24px; color: var(--acero-claro); }
+.conecta .limites { margin-top: 56px; display: grid; grid-template-columns: repeat(3, 1fr); column-gap: 56px; border-top: 2px solid var(--asfalto); padding-top: 28px; }
+.conecta .limites div { font-size: 24px; line-height: 1.45; color: var(--acero); }
+.conecta .limites b { display: block; font-size: 27px; color: var(--asfalto); margin-bottom: 6px; }
+
+/* Lightbox */
+.visor { position: fixed; inset: 0; z-index: 50; background: rgba(20,27,32,.86); display: none; align-items: center; justify-content: center; padding: 3vh 3vw; cursor: zoom-out; }
+.visor.abierto { display: flex; }
+.visor img { max-width: 100%; max-height: 100%; border-radius: 8px; box-shadow: 0 30px 80px rgba(0,0,0,.5); }
+
+/* ==========================================================================
+   Diapositiva 16 · Cascada de internalización
+   ========================================================================== */
+.cascada .cuerpo { display: grid; grid-template-columns: 1fr 470px; column-gap: 64px; align-items: start; }
+.cascada .lectura .cifra { font-size: 74px; color: var(--asfalto); white-space: nowrap; }
+.cascada .lectura .regla { height: 8px; background: var(--naranja); border-radius: 4px; margin: 18px 0 16px; transform-origin: left; }
+.cascada .lectura p { font-size: 25px; line-height: 1.45; color: var(--acero); }
+.cascada .lectura .advert { margin-top: 26px; font-size: 24px; line-height: 1.45; color: var(--asfalto); padding-top: 22px; border-top: 1px solid var(--linea); }
+
+/* ==========================================================================
+   Diapositiva 17 · Tres tipos de cifra
+   ========================================================================== */
+.tipos .columnas { display: grid; grid-template-columns: repeat(3, 1fr); column-gap: 0; margin-top: 8px; }
+.tipos .col { padding: 0 48px 0 0; margin-right: 48px; border-right: 1px solid var(--linea); }
+.tipos .col:last-child { border-right: 0; margin-right: 0; }
+.tipos .col .t { font-size: 28px; font-weight: 680; font-stretch: 108%; }
+.tipos .col .cifra { font-size: 80px; margin: 22px 0 10px; }
+.tipos .col .per { font-size: 24px; color: var(--acero); line-height: 1.4; }
+.tipos .col .linea-t { height: 6px; border-radius: 3px; margin-top: 22px; }
+.tipos .col.hist .linea-t { background: var(--asfalto); }
+.tipos .col.pot .linea-t { background: var(--naranja); }
+.tipos .col.comp .linea-t { background: repeating-linear-gradient(90deg, var(--acero-claro) 0 14px, transparent 14px 24px); }
+.tipos .col ul { margin-top: 24px; padding-left: 1.1em; }
+.tipos .col li { font-size: 24px; line-height: 1.45; color: var(--acero); margin-bottom: 8px; }
+.tipos .sensib { margin-top: 56px; border-top: 2px solid var(--asfalto); }
+.tipos table { border-collapse: collapse; width: 100%; font-size: 26px; }
+.tipos th { text-align: left; font-weight: 600; color: var(--acero); font-size: 22px; padding: 16px 0 10px; }
+.tipos td { padding: 14px 0; border-top: 1px solid var(--linea); font-variant-numeric: tabular-nums; }
+.tipos td.r, .tipos th.r { text-align: right; }
+
+/* ==========================================================================
+   Diapositiva 18 · Mapa de valor
+   ========================================================================== */
+.mapa table { border-collapse: collapse; width: 100%; }
+.mapa th { font-size: 22px; font-weight: 600; color: var(--acero); text-align: center; padding: 0 8px 16px; vertical-align: bottom; line-height: 1.25; }
+.mapa th:first-child { text-align: left; }
+.mapa td { border-top: 1px solid var(--linea); padding: 14px 8px; text-align: center; font-size: 25px; }
+.mapa td:first-child { text-align: left; font-weight: 620; font-size: 27px; }
+.mapa td.estado { text-align: left; font-size: 23px; color: var(--acero); width: 380px; }
+.mapa .pt { display: inline-block; width: 22px; height: 22px; border-radius: 50%; background: var(--asfalto); }
+.mapa .pt.fuerte { background: var(--naranja); }
+.mapa tr.complementaria td { color: var(--acero); }
+.mapa tr.complementaria td:first-child { font-weight: 500; }
+.mapa .pt.ref { background: transparent; border: 2.5px solid var(--acero-claro); }
+.mapa .leyenda { display: flex; gap: 40px; font-size: 22px; color: var(--acero); margin-top: 22px; }
+.mapa .leyenda i { display: inline-block; width: 18px; height: 18px; border-radius: 50%; vertical-align: -2px; margin-right: 10px; background: var(--asfalto); }
+.mapa .leyenda i.fuerte { background: var(--naranja); }
+.mapa .leyenda i.ref { background: transparent; border: 2.5px solid var(--acero-claro); }
+
+/* ==========================================================================
+   Diapositiva 19 · Indicadores
+   ========================================================================== */
+.indicadores .grupos { display: grid; grid-template-columns: 1.15fr 1fr; column-gap: 88px; }
+.indicadores h3 { font-size: 30px; font-weight: 680; font-stretch: 108%; padding-bottom: 14px; border-bottom: 2px solid var(--asfalto); }
+.indicadores dl { margin: 0; }
+.indicadores .kpi { display: grid; grid-template-columns: 300px 1fr 170px; column-gap: 24px; padding: 11px 0; border-bottom: 1px solid var(--linea); align-items: baseline; }
+.indicadores .grupos > div:last-child .kpi { grid-template-columns: 280px 1fr; }
+.indicadores dt { font-size: 25px; font-weight: 620; }
+.indicadores dd { margin: 0; font-size: 22px; color: var(--acero); line-height: 1.35; }
+.indicadores .frec { font-size: 21px; color: var(--acero); text-align: right; }
+
+/* ==========================================================================
+   Diapositiva 20 · Piloto de 90 días
+   ========================================================================== */
+.piloto .tl { position: relative; margin-top: 24px; }
+.piloto .escala { display: grid; grid-template-columns: repeat(90, 1fr); }
+.piloto .fases { position: relative; height: 330px; margin-top: 8px; }
+.piloto .fase { position: absolute; top: 0; height: 100%; padding: 0 22px 0 0; }
+.piloto .fase .barra { height: 16px; border-radius: 8px; background: var(--asfalto); transform-origin: left; }
+.piloto .fase.eval .barra { background: var(--naranja); }
+.piloto .fase .dias { font-size: 22px; color: var(--acero); margin-top: 18px; font-variant-numeric: tabular-nums; }
+.piloto .fase h3 { font-size: 32px; font-weight: 680; font-stretch: 108%; margin-top: 4px; }
+.piloto .fase p { font-size: 23px; line-height: 1.42; color: var(--acero); margin-top: 10px; }
+.piloto .puerta { position: absolute; right: -6px; top: -36px; bottom: 0; width: 0; border-left: 3px solid var(--naranja); }
+.piloto .puerta span { position: absolute; top: -8px; right: 14px; white-space: nowrap; font-size: 22px; color: var(--naranja-tinta); font-weight: 650; }
+.piloto .criterios { margin-top: 36px; border-top: 2px solid var(--asfalto); padding-top: 24px; display: grid; grid-template-columns: 300px 1fr; column-gap: 48px; }
+.piloto .criterios h3 { font-size: 28px; font-weight: 680; }
+.piloto .criterios ul { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px 40px; padding: 0; list-style: none; }
+.piloto .criterios li { font-size: 24px; line-height: 1.35; padding-left: 26px; position: relative; }
+.piloto .criterios li::before { content: ""; position: absolute; left: 0; top: 11px; width: 12px; height: 12px; border-radius: 2px; background: var(--naranja); }
+
+/* ==========================================================================
+   Diapositiva 21 · Inversión y recursos
+   ========================================================================== */
+.inversion table { border-collapse: collapse; width: 100%; }
+.inversion th { text-align: left; font-size: 22px; font-weight: 600; color: var(--acero); padding: 0 24px 14px 0; }
+.inversion th.r, .inversion td.r { text-align: right; }
+.inversion td { border-top: 1px solid var(--linea); padding: 20px 24px 20px 0; font-size: 26px; line-height: 1.35; vertical-align: top; }
+.inversion td:first-child { font-weight: 640; width: 470px; }
+.inversion td .det { display: block; font-size: 22px; color: var(--acero); font-weight: 400; margin-top: 4px; }
+.inversion td.monto { font-variant-numeric: tabular-nums; font-weight: 640; white-space: nowrap; }
+.inversion td.monto.pend { color: var(--acero); font-weight: 500; }
+.inversion tr.clave td { background: var(--naranja-velo); }
+.inversion tr.clave td:first-child { box-shadow: inset 6px 0 0 var(--naranja); padding-left: 24px; }
+
+/* ==========================================================================
+   Diapositiva 22 · Decisiones (oscura)
+   ========================================================================== */
+.decisiones .lista { display: grid; grid-template-columns: 1fr 1fr; column-gap: 88px; margin-top: 8px; }
+.decisiones .d { display: grid; grid-template-columns: 64px 1fr; padding: 28px 0; border-top: 1px solid #3A4A55; align-items: baseline; }
+.decisiones .d .n { font-size: 28px; color: var(--naranja); font-weight: 650; font-variant-numeric: tabular-nums; }
+.decisiones .d h3 { font-size: 31px; font-weight: 640; font-stretch: 106%; line-height: 1.25; color: #F1F3F4; }
+.decisiones .d p { font-size: 23px; color: #A9B5BC; margin-top: 6px; line-height: 1.4; }
+.decisiones .d.primera h3 { color: #fff; }
+.decisiones .cierre { position: absolute; left: var(--m); right: 220px; bottom: 64px; display: flex; justify-content: space-between; align-items: end; }
+.decisiones .cierre p { font-size: 30px; color: #DDE3E6; max-width: 1180px; line-height: 1.4; }
+.decisiones .cierre img { width: 300px; }
+
+/* ==========================================================================
+   Diapositiva 23 · Anexo
+   ========================================================================== */
+.anexo .cols { display: grid; grid-template-columns: 1fr 1fr; column-gap: 88px; }
+.anexo h3 { font-size: 28px; font-weight: 680; margin-bottom: 16px; }
+.anexo li { font-size: 22px; line-height: 1.45; color: var(--acero); margin-bottom: 8px; }
+.anexo ul { padding-left: 1.1em; }
+.anexo li b { color: var(--asfalto); }
+
+/* ==========================================================================
+   Controles de Reveal con la identidad
+   ========================================================================== */
+.reveal .controls { color: var(--naranja); bottom: 40px; right: 40px; }
+.reveal .progress { display: none; }
+.reveal .slide-number { display: none; }
+
+/* Foco visible para teclado */
+.reveal a:focus-visible, .captura:focus-visible { outline: 3px solid var(--naranja); outline-offset: 6px; border-radius: 8px; }
+
+/* Movimiento reducido: todo en estado final */
+@media (prefers-reduced-motion: reduce) {
+  .reveal .slides section .fragment { transition: none; transform: none; }
+}
+
+/* ==========================================================================
+   Impresión / exportación PDF (?print-pdf)
+   ========================================================================== */
+.reveal.print-pdf .slides > section, html.print-pdf .reveal .slides section { background: var(--papel); }
+html.print-pdf .reveal .slides section.oscura, html.print-pdf .reveal .slides section.portada { background: var(--noche) !important; }
+html.print-pdf .fragment { opacity: 1 !important; transform: none !important; }
+html.print-pdf .reveal .controls { display: none !important; }
+html.print-pdf .reveal .slides .pdf-page { background: var(--papel); }

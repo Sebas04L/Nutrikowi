@@ -1,0 +1,795 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nutrikowi · Taller y Logística</title>
+<meta name="description" content="Propuesta para Dirección: reestructuración del taller, internalización del preventivo, control de llantas y fortalecimiento administrativo de Logística. Noviembre 2026.">
+<link rel="preload" href="vendor/fonts/archivo-latin-wdth-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="vendor/reveal/reset.css">
+<link rel="stylesheet" href="vendor/reveal/reveal.css">
+<link rel="stylesheet" href="css/deck.css">
+<link rel="icon" href="assets/logo-nutrikowi.png">
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+
+<!-- =====================================================================
+     1 · PORTADA
+     ===================================================================== -->
+<section class="portada" data-titulo="Portada" data-background-color="#1F2B33">
+  <img class="logo" src="assets/logo-nutrikowi.png" alt="Nutrikowi">
+  <h1 data-anim="titulo">Del servicio externo<br>al control propio</h1>
+  <div class="regla" data-anim="regla"></div>
+  <p class="sub" data-anim="sub">Reestructuración del taller, internalización del mantenimiento preventivo y fortalecimiento administrativo de Logística</p>
+  <div class="meta" data-anim="sub">
+    <div><b>Propuesta para Dirección</b>Dirección General y Dirección Administrativa</div>
+    <div><b>Corte de información</b>Noviembre de 2026</div>
+  </div>
+  <aside class="notes">
+    Objetivo de la sesión: obtener autorización para un piloto de 90 días. No se pide aprobar ahorros: se pide aprobar la forma de medirlos.
+    Mensaje de apertura: hoy el preventivo de la flotilla lo controla un tercero; proponemos recuperar el control con datos propios.
+  </aside>
+</section>
+
+<!-- =====================================================================
+     2 · CONTEXTO · Operación
+     ===================================================================== -->
+<section class="operacion" data-cap="0">
+  <div class="lienzo">
+    <div class="cabeza">
+      <h2 class="titular">Nutrikowi mueve cerca de mil toneladas al día. La flotilla no puede detenerse.</h2>
+    </div>
+    <div class="fila-cifras">
+      <div class="dato fragment" data-fragment-index="0">
+        <div class="cifra"><span class="aprox">≈</span><span class="cuenta" data-to="1000">1,000</span></div>
+        <div class="base"></div>
+        <div class="que">toneladas diarias</div>
+        <div class="det">Alimento balanceado de alta intensidad logística</div>
+      </div>
+      <div class="dato fragment" data-fragment-index="1">
+        <div class="cifra"><span class="cuenta" data-to="3">3</span></div>
+        <div class="base"></div>
+        <div class="que">turnos de operación</div>
+        <div class="det">Requiere cobertura de taller continua</div>
+      </div>
+      <div class="dato fragment" data-fragment-index="2">
+        <div class="cifra">25–30</div>
+        <div class="base"></div>
+        <div class="que">tráileres por día</div>
+        <div class="det">Despachos diarios reportados</div>
+      </div>
+      <div class="dato fragment" data-fragment-index="3">
+        <div class="cifra"><span class="aprox">≈</span><span class="cuenta" data-to="35">35</span></div>
+        <div class="base"></div>
+        <div class="que">unidades en flotilla</div>
+        <div class="det">Tractos, tolvas de 28 y 38 t, configuración full de 56 t</div>
+      </div>
+    </div>
+    <div class="rutas fragment" data-fragment-index="4">
+      <p><b>12–14 horas</b>Viaje redondo a Hermosillo: planeación de turnos y cobertura de choferes</p>
+      <p><b>80 km/h en carretera</b>Límite interno con monitoreo GPS; terracería hasta 35 km/h en granjas</p>
+      <p><b>Rutas con chofer exclusivo</b>Caborca y granjas de Hermosillo limitan intercambiar operadores</p>
+    </div>
+  </div>
+  <p class="fuente">Datos operativos reportados por Logística; contexto, no capacidad certificada. Corte noviembre 2026.</p>
+  <aside class="notes">
+    Este es el contexto: una operación de tres turnos donde una unidad fuera de servicio afecta despachos el mismo día.
+    Las cifras son reportadas y se usan como escala, no como capacidad certificada.
+  </aside>
+</section>
+
+<!-- =====================================================================
+     3 · DIMENSIÓN · Gasto logístico
+     ===================================================================== -->
+<section class="logistica" data-cap="1">
+  <div class="lienzo">
+    <div class="cabeza">
+      <h2 class="titular">Logística administra alrededor de $9 millones al mes. La disponibilidad de la flotilla sostiene ese costo por tonelada.</h2>
+    </div>
+    <div class="grafica">
+      <svg data-chart="logistica" viewBox="0 0 1160 560" width="1160" height="560" role="img" aria-label="Gasto logístico mensual reportado y costo por tonelada, febrero a septiembre de 2026"></svg>
+      <div class="lectura fragment" data-fragment-index="1">
+        <div class="cifra"><span class="cuenta" data-to="9.12" data-dec="2" data-pre="$" data-suf=" M">$9.12 M</span></div>
+        <p class="texto" style="font-size:26px;color:var(--acero)">Promedio mensual de los seis meses reportados (gasto logístico total)</p>
+        <p class="texto" style="font-size:26px;margin-top:36px">El costo por tonelada se movió entre <strong>$353 y $415</strong>. Cada unidad detenida reduce viajes disponibles con el mismo costo fijo.</p>
+      </div>
+    </div>
+  </div>
+  <p class="fuente">Presentaciones mensuales de Logística 2026. Junio y agosto sin dato comparable (junio repite abril). El “gasto” puede incluir rubros por homologar antes de comparar meses.</p>
+  <aside class="notes">
+    Promedio = suma de los seis meses reportados entre seis ($54.73 M / 6). No hay serie homogénea enero–septiembre.
+    El punto no es el monto en sí, sino que el mantenimiento y las llantas forman parte de ese costo y hoy no se miden por unidad.
+  </aside>
+</section>
+
+<!-- =====================================================================
+     4 · DIMENSIÓN · Modelo CAPASA hoy
+     ===================================================================== -->
+<section class="capasa-hoy" data-cap="1">
+  <div class="lienzo">
+    <div class="cabeza">
+      <h2 class="titular">Hoy, el preventivo de 33 unidades lo ejecuta y lo factura un tercero</h2>
+    </div>
+    <div class="diagrama">
+      <div class="fragment" data-fragment-index="0">
+        <div class="grilla-unidades" data-unidades="35" data-cubiertas="33" aria-hidden="true"></div>
+        <div class="leyenda-u"><span><i></i>Atendidas por CAPASA (33)</span><span><i class="fuera"></i>Resto de la flotilla (≈ 2)</span></div>
+      </div>
+      <div class="hechos">
+        <div class="hecho fragment" data-fragment-index="1"><div class="cifra">≈ 4</div><p>visitas al mes de CAPASA</p></div>
+        <div class="hecho fragment" data-fragment-index="1"><div class="cifra">13–14</div><p>unidades atendidas al mes, en grupos de unas cuatro por visita</p></div>
+        <div class="hecho fragment" data-fragment-index="2"><div class="cifra">1–2 h</div><p>tiempo observado por unidad</p></div>
+        <div class="hecho fragment" data-fragment-index="2"><div class="cifra">2 partes</div><p>en la factura: servicio y materiales, por separado</p></div>
+      </div>
+    </div>
+    <div class="esquema fragment" data-fragment-index="3">
+      <div><b>Cuota y servicio</b>Cuota mensual por unidades cubiertas y mano de obra en sitio</div>
+      <div><b>Materiales</b>Aceites, filtros y consumibles facturados aparte por el proveedor</div>
+      <div><b>Lo que no controlamos</b>Calendario, tiempos, precio de materiales y registro por unidad</div>
+    </div>
+  </div>
+  <p class="fuente">Diagnóstico CAPASA y archivo GASTOS CAPASA 2026. Tiempos por unidad estimados; flotilla reportada de ≈ 35 unidades.</p>
+  <aside class="notes">
+    La cuenta de CAPASA no es todo el mantenimiento de la empresa: es el alcance preventivo de 33 unidades.
+    Correctivos, extraordinarios y servicios especializados quedan fuera de esta base.
+  </aside>
+</section>
+
+<!-- =====================================================================
+     5 · PROBLEMA · Cinco brechas
+     ===================================================================== -->
+<section class="brechas" data-cap="2">
+  <div class="lienzo">
+    <div class="cabeza" style="margin-bottom:40px">
+      <h2 class="titular">El control del mantenimiento se nos escapa en cinco puntos</h2>
+    </div>
+    <div class="lista">
+      <div class="renglon fragment" data-fragment-index="0">
+        <span class="n">1</span>
+        <div><h3>El preventivo depende de un tercero</h3><p class="evid">Calendario, tiempos y precios de materiales los define el proveedor</p></div>
+        <p class="costo">Pagamos servicio que el taller podría absorber parcialmente</p>
+      </div>
+      <div class="renglon fragment" data-fragment-index="1">
+        <span class="n">2</span>
+        <div><h3>El taller no da abasto en horas pico</h3><p class="evid">5–6 unidades pendientes en ciertos momentos; horas extra; rescate a Caborca dejó el taller con cobertura reducida</p></div>
+        <p class="costo">Horas extra, unidades detenidas y riesgo operativo</p>
+      </div>
+      <div class="renglon fragment" data-fragment-index="2">
+        <span class="n">3</span>
+        <div><h3>El taller no tiene inventario propio</h3><p class="evid">No se conocen existencias ni consumo por unidad</p></div>
+        <p class="costo">Compras urgentes, faltantes y gasto sin planeación</p>
+      </div>
+      <div class="renglon fragment" data-fragment-index="3">
+        <span class="n">4</span>
+        <div><h3>Las llantas no tienen vida útil registrada</h3><p class="evid">Se conoce lo que se compra, no lo que rinde cada llanta</p></div>
+        <p class="costo">No sabemos el costo por kilómetro ni la causa de cada retiro</p>
+      </div>
+      <div class="renglon fragment" data-fragment-index="4">
+        <span class="n">5</span>
+        <div><h3>La información no se consolida</h3><p class="evid">Solicitudes retransmitidas por intermediarios; Logística sin función administrativa dedicada</p></div>
+        <p class="costo">Decisiones sin línea base ni indicadores comparables</p>
+      </div>
+    </div>
+  </div>
+  <p class="fuente">Diagnóstico del taller y de Logística, 2026. El caso Caborca demuestra riesgo operativo; no tiene costo monetario validado.</p>
+  <aside class="notes">
+    Aquí todavía no hablamos de montos: primero que Dirección reconozca las cinco brechas.
+    En la siguiente diapositiva se dimensiona el dinero de la brecha 1 y la 4.
+  </aside>
+</section>
+
+<!-- =====================================================================
+     6 · IMPACTO · CAPASA en dinero (oscura)
+     ===================================================================== -->
+<section class="dinero oscura" data-cap="3" data-background-color="#1F2B33">
+  <div class="lienzo">
+    <div class="cabeza">
+      <h2 class="titular">En diez meses, el preventivo de CAPASA sumó $2.63 millones antes de IVA</h2>
+    </div>
+    <div class="principal">
+      <div class="gran">
+        <div class="cifra"><span class="cuenta" data-to="2628044.53" data-dec="2" data-pre="$">$2,628,044.53</span></div>
+        <div class="regla" data-anim="regla"></div>
+        <div class="que">Subtotal aprobado/registrado, enero–octubre 2026 · preventivo CAPASA</div>
+      </div>
+      <div class="mensual fragment" data-fragment-index="0">
+        <div class="cifra"><span class="cuenta" data-to="262804.45" data-dec="2" data-pre="$">$262,804.45</span></div>
+        <p>promedio mensual<br>(diez meses, sin IVA)</p>
+      </div>
+    </div>
+    <div class="barra-partes fragment" data-fragment-index="1">
+      <div class="barra" aria-hidden="true"><span class="serv"></span><span class="mat"></span></div>
+      <div class="partes">
+        <div><b>$1,504,528.11</b><i style="background:var(--naranja)"></i>Servicios · 57% · promedio $150,452.81 al mes<br>Es la parte que el taller puede absorber gradualmente</div>
+        <div><b>$1,123,516.42</b><i style="background:var(--acero-claro)"></i>Materiales · 43% · $112,351.64 al mes<br>Se siguen consumiendo: no son ahorro</div>
+      </div>
+    </div>
+  </div>
+  <p class="fuente">GASTOS CAPASA 2026 (base correcta para el preventivo). Registros de costos aprobados, no necesariamente pagados. IVA calculado (16%) referencial: $420,487.12; total con IVA $3,048,531.65.</p>
+  <aside class="notes">
+    Esta es la base preventiva de CAPASA, no la cuenta total de mantenimiento de la empresa.
+    La cuota fija de $161,229 de un diagnóstico anterior es otra definición; no sustituye el promedio de servicios de $150,452.81.
+    El IVA se muestra aparte: si es acreditable, no es costo económico.
+  </aside>
+</section>
+
+<!-- =====================================================================
+     7 · IMPACTO · Llantas
+     ===================================================================== -->
+<section class="llantas" data-cap="3">
+  <div class="lienzo">
+    <div class="cabeza">
+      <h2 class="titular">En llantas gastamos casi $2 millones en el año sin saber cuántos kilómetros rinde cada una</h2>
+    </div>
+    <div class="cuerpo">
+      <svg data-chart="llantas" viewBox="0 0 1180 540" width="1180" height="540" role="img" aria-label="Solicitudes de compra de llantas aprobadas por mes, enero a octubre de 2026"></svg>
+      <div>
+        <div class="bases">
+          <div class="base fragment" data-fragment-index="1">
+            <div class="t">Cuenta contable 52012031</div>
+            <div class="cifra">$1,888,099.46</div>
+            <p>Enero–septiembre 2026 · promedio $209,788.83 al mes</p>
+          </div>
+          <div class="base fragment" data-fragment-index="2">
+            <div class="t">Solicitudes de compra aprobadas</div>
+            <div class="cifra">≈ $1,978,022</div>
+            <p>Enero–octubre 2026 · 174 solicitudes · promedio $197,802 al mes</p>
+          </div>
+        </div>
+        <p class="aviso fragment" data-fragment-index="3">Son dos vistas de la misma compra en etapas distintas: <strong>no se suman</strong>.</p>
+      </div>
+    </div>
+  </div>
+  <p class="fuente">COMPRA DE LLANTAS 2026 y cuenta 52012031. Aprobado no equivale necesariamente a pagado. El bajo gasto contable de septiembre puede reflejar calendario de compras, no menor consumo.</p>
+  <aside class="notes">
+    Febrero fue el mes de mayor importe aprobado ($261,388.26).
+    Medidas frecuentes en partidas: 11R24.5 (154 apariciones) y 11R22.5 (8). Son menciones de texto, no un conteo físico de llantas instaladas.
+  </aside>
+</section>
+
+<!-- =====================================================================
+     8 · SOLUCIÓN · Seis cambios
+     ===================================================================== -->
+<section class="cambios" data-cap="4">
+  <div class="lienzo">
+    <div class="cabeza">
+      <h2 class="titular">Seis cambios para que cada peso de mantenimiento tenga responsable, registro y medida</h2>
+    </div>
+    <div class="rejilla">
+      <div class="cambio fragment" data-fragment-index="0"><span class="n">1</span><h3>Internalizar el preventivo rutinario</h3><p>Aceite, filtros, lubricación e inspección en el taller propio, por etapas</p><p class="palanca">Reduce servicio pagado a terceros</p></div>
+      <div class="cambio fragment" data-fragment-index="0"><span class="n">2</span><h3>Reorganizar turnos y supervisión</h3><p>Mecánico adicional en traslape y supervisor con base en el taller</p><p class="palanca">Menos rezago y horas extra</p></div>
+      <div class="cambio fragment" data-fragment-index="0"><span class="n">3</span><h3>Inventario propio con Compras directo</h3><p>Stock operativo en estantería existente y solicitudes sin intermediarios</p><p class="palanca">Evita compras urgentes y faltantes</p></div>
+      <div class="cambio fragment" data-fragment-index="1"><span class="n">4</span><h3>Programa integral de llantas</h3><p>Trazabilidad desde la instalación hasta el retiro, llanta por llanta</p><p class="palanca">Costo por kilómetro medible</p></div>
+      <div class="cambio fragment" data-fragment-index="1"><span class="n">5</span><h3>Encargado Administrativo de Logística</h3><p>Una función que consolida costos, indicadores y seguimiento</p><p class="palanca">Control presupuestal y decisiones con datos</p></div>
+      <div class="cambio fragment" data-fragment-index="1"><span class="n">6</span><h3>Plataforma digital del taller</h3><p>Un solo registro de unidades, órdenes, inventario, solicitudes y llantas</p><p class="palanca">Trazabilidad para comprobar resultados</p></div>
+    </div>
+  </div>
+  <p class="fuente">Propuesta integral de mantenimiento de flotilla y reestructuración de Logística. Se mantienen proveedores externos para trabajos especializados.</p>
+  <aside class="notes">
+    Cada cambio responde a una de las cinco brechas. Las siguientes diapositivas explican cómo funciona cada uno y qué problema económico resuelve.
+  </aside>
+</section>
+
+<!-- =====================================================================
+     9 · SOLUCIÓN · Turnos y supervisor
+     ===================================================================== -->
+<section class="turnos" data-cap="4">
+  <div class="lienzo">
+    <div class="cabeza">
+      <h2 class="titular">Un mecánico en traslape y un supervisor en el piso atacan el rezago donde se genera</h2>
+    </div>
+    <div class="cuerpo">
+      <svg data-chart="turnos" viewBox="0 0 1180 560" width="1180" height="560" role="img" aria-label="Cobertura de turnos del taller: mecánico 1 de 7 a 15, mecánico 2 de 15 a 23 y mecánico adicional propuesto de 10 a 18"></svg>
+      <div class="valor fragment" data-fragment-index="3">
+        <h3>Qué resuelve en dinero</h3>
+        <ul>
+          <li><strong>Horas extra:</strong> muestra parcial de $8,944.98 al mes (≈ 64.83 h, mecánico y llantero)</li>
+          <li><strong>Rezago:</strong> 5–6 unidades pendientes en momentos pico vuelven a operar antes</li>
+          <li><strong>Capacidad:</strong> habilita absorber el preventivo de CAPASA</li>
+          <li><strong>Supervisión física:</strong> asigna carga, valida calidad, controla herramientas y stock</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <p class="fuente">Organización del personal del taller (propuesta). Horas extra: proyección mensual de una muestra de nómina; se mide antes y después, no se asume eliminación total.</p>
+  <aside class="notes">
+    El mecánico adicional cuesta $28,601.26 al mes (costo empresa comunicado; ya incluye costo patronal).
+    El escenario de dos mecánicos solo se abre si la medición demuestra que uno no cubre la carga.
+    Supervisor: su base diaria debe ser el taller; la oficina sirve para coordinar.
+  </aside>
+</section>
+
+<!-- =====================================================================
+     10 · SOLUCIÓN · Orden de trabajo
+     ===================================================================== -->
+<section class="orden" data-cap="4">
+  <div class="lienzo">
+    <div class="cabeza">
+      <h2 class="titular">Cada orden de trabajo deja registro de tiempo, material y costo por unidad</h2>
+    </div>
+    <div class="flujo">
+      <div class="pasos">
+        <div class="progreso-flujo" data-anim="flujo"></div>
+        <div class="paso"><div class="pt"></div><div class="n">1</div><h3>Detectar</h3><p>Km, horómetro, reporte o inspección</p><div class="quien">Supervisor / técnico</div></div>
+        <div class="paso"><div class="pt"></div><div class="n">2</div><h3>Programar</h3><p>Preventivo, correctivo o especializado</p><div class="quien">Supervisor</div></div>
+        <div class="paso"><div class="pt"></div><div class="n">3</div><h3>Asignar</h3><p>Técnico, turno, bahía y materiales</p><div class="quien">Supervisor</div></div>
+        <div class="paso"><div class="pt"></div><div class="n">4</div><h3>Recibir</h3><p>Inspección inicial y evidencia</p><div class="quien">Técnico / supervisor</div></div>
+        <div class="paso registra"><div class="pt"></div><div class="n">5</div><h3>Ejecutar</h3><p>Inicio, fin, hallazgos, materiales y fotos</p><div class="quien">Mecánico / llantero</div></div>
+        <div class="paso registra"><div class="pt"></div><div class="n">6</div><h3>Controlar</h3><p>Autoriza trabajo adicional y su causa</p><div class="quien">Supervisor</div></div>
+        <div class="paso"><div class="pt"></div><div class="n">7</div><h3>Verificar</h3><p>Calidad, seguridad y prueba</p><div class="quien">Supervisor</div></div>
+        <div class="paso"><div class="pt"></div><div class="n">8</div><h3>Liberar</h3><p>Estado final y disponibilidad</p><div class="quien">Supervisor</div></div>
+        <div class="paso registra"><div class="pt"></div><div class="n">9</div><h3>Cerrar</h3><p>Consumos, tiempos, costo e historial</p><div class="quien">Técnico / supervisor</div></div>
+      </div>
+    </div>
+    <div class="resultado">
+      <div class="fragment" data-fragment-index="0"><b>Costo por unidad</b>Materiales, mano de obra y externos atribuibles a cada tracto o tolva</div>
+      <div class="fragment" data-fragment-index="0"><b>Tiempo de ciclo</b>Cuánto tarda una unidad fuera de operación, por tipo de trabajo</div>
+      <div class="fragment" data-fragment-index="1"><b>Reincidencia</b>Fallas repetidas por unidad y sistema, antes de que escalen</div>
+      <div class="fragment" data-fragment-index="1"><b>Consumo real</b>La base para fijar mínimos de inventario sin inventar cantidades</div>
+    </div>
+  </div>
+  <p class="fuente">Procedimiento operativo del taller Nutrikowi. Los pasos en naranja son los que generan el dato económico.</p>
+  <aside class="notes">
+    El valor no está en el formato, sino en el dato: sin orden cerrada no hay costo por unidad ni comparación contra CAPASA.
+  </aside>
+</section>
+
+<!-- =====================================================================
+     11 · SOLUCIÓN · Inventario y Compras
+     ===================================================================== -->
+<section class="compras" data-cap="4">
+  <div class="lienzo">
+    <div class="cabeza">
+      <h2 class="titular">El supervisor pide directo a Compras y las autorizaciones se conservan</h2>
+    </div>
+    <div class="cuerpo">
+      <svg data-chart="carriles" viewBox="0 0 1240 600" width="1240" height="600" role="img" aria-label="Flujo de solicitud de material entre Taller, Compras y Almacén"></svg>
+      <div class="valor">
+        <p class="fragment" data-fragment-index="2"><strong>Inventario controlado</strong> permite conocer existencias y consumos, reducir compras urgentes, evitar faltantes y planear el gasto.</p>
+        <p class="fragment" data-fragment-index="2"><strong>Estantería existente.</strong> No se compran racks. Familias: aceites, filtros, consumibles y refacciones menores validadas por historial.</p>
+        <div class="formula fragment" data-fragment-index="3"><b>Mínimo</b> = consumo durante el tiempo de entrega + stock de seguridad aprobado.<br><span class="nota">Cantidades iniciales con datos de los primeros 30–60 días del piloto.</span></div>
+      </div>
+    </div>
+  </div>
+  <p class="fuente">Modelo de inventario del taller y matriz de responsabilidades. El taller administra stock operativo; no se convierte en almacén general.</p>
+  <aside class="notes">
+    La simplificación elimina retransmisiones, no autorizaciones: Compras valida número de parte, proveedor, precio y compra.
+    Estrategia de proveedores: comparar costo total. La comparación previa mostró 4 de 6 referencias públicas más caras que el precio histórico de CAPASA; comprar directo no siempre ahorra.
+  </aside>
+</section>
+
+<!-- =====================================================================
+     12 · SOLUCIÓN · Llantas: costo por km
+     ===================================================================== -->
+<section class="ciclo" data-cap="4">
+  <div class="lienzo">
+    <div class="cabeza">
+      <h2 class="titular">Una llanta se evalúa por su costo por kilómetro, no por su precio de compra</h2>
+    </div>
+    <div class="cuerpo">
+      <svg data-chart="ciclo" viewBox="-100 0 920 640" width="920" height="640" role="img" aria-label="Ciclo de vida de una llanta: instalación, inspección y presión, rotación o reparación, retiro y cálculo de costo por kilómetro"></svg>
+      <div>
+        <div class="formula-grande fragment" data-fragment-index="5">
+          Costo por km
+          <span class="div"></span>
+          <small>costo de compra ÷ km de vida útil</small>
+        </div>
+        <p class="registro fragment" data-fragment-index="6"><b>Vida útil (km)</b> = km al retiro − km de instalación.<br><b>Por llanta se registra:</b> unidad, posición, marca y medida, fecha y km de instalación, presión, profundidad de dibujo, rotaciones, reparaciones, causa de retiro y costo.</p>
+        <p class="registro fragment" data-fragment-index="6">Alineación y balanceo por diagnóstico y condición, no por intervalo arbitrario.</p>
+      </div>
+    </div>
+  </div>
+  <p class="fuente">Programa integral de llantas. La trazabilidad empieza con cada nueva instalación; el historial previo no existe y no se reconstruye.</p>
+  <aside class="notes">
+    Con costo por kilómetro se pueden comparar marcas (Roadmaster, Goodride, Grandstone, Mirage, Vigorus) por rendimiento real, no por precio.
+    Esto permite detectar retiros prematuros por presión o alineación.
+  </aside>
+</section>
+
+<!-- =====================================================================
+     13 · SOLUCIÓN · Encargado administrativo
+     ===================================================================== -->
+<section class="encargado" data-cap="4">
+  <div class="lienzo">
+    <div class="cabeza">
+      <h2 class="titular">Una función administrativa que convierta los datos de Logística en decisiones</h2>
+    </div>
+    <div class="cuerpo">
+      <svg data-chart="hub" viewBox="-110 0 840 620" width="840" height="620" role="img" aria-label="El Encargado Administrativo de Logística coordina información con Taller, Compras, Almacén, Despacho y Dirección"></svg>
+      <div>
+        <div class="hace fragment" data-fragment-index="1">
+          <h3>Qué hará</h3>
+          <ul>
+            <li>Consolidar viajes, toneladas, combustible, mantenimiento, llantas y costos</li>
+            <li>Elaborar indicadores y reportes ejecutivos con seguimiento</li>
+            <li>Analizar desviaciones, causas y tendencias</li>
+            <li>Controlar documentos, presupuestos, gastos y compromisos</li>
+            <li>Dar seguimiento a proyectos y acuerdos con responsables y fechas</li>
+          </ul>
+        </div>
+        <div class="no fragment" data-fragment-index="2">
+          <h3>Qué no será</h3>
+          <ul>
+            <li>Segundo despachador, sustituto del supervisor, comprador ni responsable físico del almacén</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <p class="fuente">Rediseño de la función administrativa de Logística. Es una definición de puesto y entregables, no una evaluación del ocupante actual. El reporte jerárquico lo define Dirección.</p>
+  <aside class="notes">
+    Perfil: logística de transporte, Excel sólido, análisis y comunicación; disposición a usar IA y automatización. No se exige Power BI, SQL ni Python.
+    La operación diaria de transporte sigue enfocada en unidades, rutas, viajes, operadores y despacho.
+  </aside>
+</section>
+
+<!-- =====================================================================
+     14 · SOLUCIÓN · Plataforma (capturas)
+     ===================================================================== -->
+<section class="plataforma" data-cap="4">
+  <div class="lienzo" style="padding-top:150px">
+    <div class="cabeza" style="margin-bottom:36px">
+      <h2 class="titular">La plataforma muestra cómo funcionaría el control<span class="etiqueta-demo">Prototipo con datos de demostración</span></h2>
+    </div>
+    <div class="mosaico">
+      <figure class="captura principal-cap" tabindex="0">
+        <img src="assets/plataforma/inicio.webp" alt="Pantalla de inicio de la plataforma: estado de la flotilla, mapa de unidades y alertas">
+        <figcaption><b>Inicio.</b> Estado de las 35 unidades, servicios vencidos, solicitudes y gasto del mes en una vista</figcaption>
+      </figure>
+      <figure class="captura lateral-cap fragment" data-fragment-index="0" tabindex="0">
+        <img src="assets/plataforma/taller.webp" alt="Tablero de órdenes de trabajo del taller por estado">
+        <figcaption><b>Taller.</b> Órdenes por estado, incluidas las detenidas por material</figcaption>
+      </figure>
+      <figure class="captura lateral-cap fragment" data-fragment-index="1" tabindex="0">
+        <img src="assets/plataforma/inventario.webp" alt="Inventario del taller con existencias, mínimos y ubicación">
+        <figcaption><b>Inventario.</b> Existencia, reservado, mínimo y ubicación</figcaption>
+      </figure>
+      <figure class="captura lateral-cap fragment" data-fragment-index="2" tabindex="0">
+        <img src="assets/plataforma/llantas.webp" alt="Control de llantas con diagrama por eje y profundidad de dibujo">
+        <figcaption><b>Llantas.</b> Posición, dibujo y costo por km por llanta</figcaption>
+      </figure>
+    </div>
+  </div>
+  <p class="fuente">Prototipo visual publicado en sebas04l.github.io/Nutrikowi/plataforma. Las cifras de las capturas son ficticias. Haga clic en una captura para ampliarla.</p>
+  <aside class="notes">
+    Presentarlo como demostración del modelo de control, no como sistema productivo: no tiene backend ni integración con el ERP.
+    Si hay tiempo, abrir el prototipo en vivo desde el enlace.
+  </aside>
+</section>
+
+<!-- =====================================================================
+     15 · SOLUCIÓN · Cómo conecta los procesos
+     ===================================================================== -->
+<section class="conecta" data-cap="4">
+  <div class="lienzo">
+    <div class="cabeza">
+      <h2 class="titular">Un solo registro conecta unidad, orden, material, llanta y costo</h2>
+    </div>
+    <div class="cadena">
+      <div class="eslabon fragment" data-fragment-index="0">
+        <div class="mini"><img src="assets/plataforma/flotilla.webp" alt="Módulo de flotilla"></div>
+        <h3>Unidad</h3><p>Catálogo, motor, kilometraje e historial</p><p class="dato">Detecta el preventivo que toca</p>
+        <svg class="flecha" viewBox="0 0 20 24" aria-hidden="true"><path d="M2 2l14 10L2 22" fill="none" stroke="currentColor" stroke-width="3"/></svg>
+      </div>
+      <div class="eslabon fragment" data-fragment-index="1">
+        <div class="mini"><img src="assets/plataforma/taller.webp" alt="Módulo de taller"></div>
+        <h3>Orden de trabajo</h3><p>Tiempos, hallazgos, fotos y liberación</p><p class="dato">Tiempo de ciclo y mano de obra</p>
+        <svg class="flecha" viewBox="0 0 20 24" aria-hidden="true"><path d="M2 2l14 10L2 22" fill="none" stroke="currentColor" stroke-width="3"/></svg>
+      </div>
+      <div class="eslabon fragment" data-fragment-index="2">
+        <div class="mini"><img src="assets/plataforma/solicitudes.webp" alt="Módulo de solicitudes de material"></div>
+        <h3>Material</h3><p>Salida de inventario o solicitud con folio a Compras</p><p class="dato">Consumo por orden y por unidad</p>
+        <svg class="flecha" viewBox="0 0 20 24" aria-hidden="true"><path d="M2 2l14 10L2 22" fill="none" stroke="currentColor" stroke-width="3"/></svg>
+      </div>
+      <div class="eslabon fragment" data-fragment-index="3">
+        <div class="mini"><img src="assets/plataforma/llantas.webp" alt="Módulo de llantas"></div>
+        <h3>Llanta</h3><p>Instalación, presión, rotación y retiro</p><p class="dato">Costo por kilómetro</p>
+        <svg class="flecha" viewBox="0 0 20 24" aria-hidden="true"><path d="M2 2l14 10L2 22" fill="none" stroke="currentColor" stroke-width="3"/></svg>
+      </div>
+      <div class="eslabon fragment" data-fragment-index="4">
+        <div class="mini"><img src="assets/plataforma/reportes.webp" alt="Módulo de reportes"></div>
+        <h3>Reporte</h3><p>Costos, cumplimiento, pendientes y tendencias</p><p class="dato">Comparación contra CAPASA</p>
+      </div>
+    </div>
+    <div class="limites fragment" data-fragment-index="5">
+      <div><b>Etapa 1</b>Requisiciones por correo a Compras con folio y datos completos</div>
+      <div><b>Después</b>Evaluar API aprobada o intercambio CSV con el ERP; hoy no hay integración</div>
+      <div><b>Límite</b>El sistema no autoriza compras: registra solicitudes y trazabilidad</div>
+    </div>
+  </div>
+  <p class="fuente">Especificación del sistema digital del taller. El ERP actual se describe como cerrado, sin API confirmada.</p>
+  <aside class="notes">
+    Dispositivos: móvil o tableta para supervisor y técnicos; escritorio para control de flotilla, inventario, reportes y Dirección. Roles y permisos separados.
+  </aside>
+</section>
+
+<!-- =====================================================================
+     16 · VALOR · Cascada de internalización
+     ===================================================================== -->
+<section class="cascada" data-cap="5">
+  <div class="lienzo">
+    <div class="cabeza" style="margin-bottom:36px">
+      <h2 class="titular">Internalizar el preventivo rutinario abre una diferencia bruta de hasta $121,851.55 al mes</h2>
+    </div>
+    <div class="cuerpo">
+      <svg data-chart="cascada" viewBox="0 0 1240 660" width="1240" height="660" role="img" aria-label="Cascada mensual: servicios CAPASA 150,452.81 menos mecánico adicional 28,601.26 igual a diferencia bruta 121,851.55; menos horas extra observadas 8,944.98 igual a 112,906.57. Materiales 112,351.64 permanecen en ambos escenarios."></svg>
+      <div class="lectura fragment" data-fragment-index="2">
+        <div class="cifra">$121,851.55</div>
+        <div class="regla"></div>
+        <p>al mes: servicios CAPASA ($150,452.81) menos el costo empresa del mecánico adicional ($28,601.26)</p>
+        <p class="advert fragment" data-fragment-index="5"><strong>Es un techo aritmético, no ahorro neto.</strong> Falta descontar servicios especializados que sigan externos, herramientas, capacitación y transición. Los materiales no cambian y no se cuentan como ahorro.</p>
+      </div>
+    </div>
+  </div>
+  <p class="fuente">Promedios mensuales enero–octubre 2026, sin IVA, archivo GASTOS CAPASA 2026. Costo del mecánico ya incluye costo patronal. Horas extra: muestra parcial, se presentan solo como sensibilidad y no se suman como ahorro.</p>
+  <aside class="notes">
+    Secuencia: 1) servicios CAPASA; 2) restamos el mecánico; 3) diferencia bruta; 4) si las horas extra observadas siguieran completas, la diferencia sería $112,906.57.
+    Materiales ($112,351.64) aparecen a la derecha, fuera del cálculo: se consumen igual con o sin CAPASA.
+    La sustitución es gradual: no se asume 100% desde el día 1.
+  </aside>
+</section>
+
+<!-- =====================================================================
+     17 · VALOR · Tipos de cifra y sensibilidad
+     ===================================================================== -->
+<section class="tipos" data-cap="5">
+  <div class="lienzo">
+    <div class="cabeza">
+      <h2 class="titular">Es un potencial por validar, no un ahorro comprobado</h2>
+    </div>
+    <div class="columnas">
+      <div class="col hist fragment" data-fragment-index="0">
+        <div class="t">Gasto histórico</div>
+        <div class="cifra">$2.63 M</div>
+        <div class="per">Preventivo CAPASA, enero–octubre 2026, sin IVA</div>
+        <div class="linea-t"></div>
+        <ul><li>Dato observado en registros aprobados</li><li>Pagado y facturado aún por conciliar</li></ul>
+      </div>
+      <div class="col pot fragment" data-fragment-index="1">
+        <div class="t">Potencial bruto</div>
+        <div class="cifra">$1.46 M</div>
+        <div class="per">Anualizado: $121,851.55 × 12 = $1,462,218.60</div>
+        <div class="linea-t"></div>
+        <ul><li>Cálculo sujeto a validación</li><li>Antes de inversión, externos y transición</li></ul>
+      </div>
+      <div class="col comp fragment" data-fragment-index="2">
+        <div class="t">Ahorro comprobado</div>
+        <div class="cifra" style="color:var(--acero)">Por medir</div>
+        <div class="per">Se determina con el piloto, días 61–90</div>
+        <div class="linea-t"></div>
+        <ul><li>Costo total interno contra CAPASA</li><li>Con tiempos, horas extra y disponibilidad reales</li></ul>
+      </div>
+    </div>
+    <div class="sensib fragment" data-fragment-index="3">
+      <table>
+        <thead><tr><th>Escenario de personal</th><th class="r">Costo adicional mensual</th><th class="r">Diferencia vs. servicios CAPASA</th><th class="r">Estado</th></tr></thead>
+        <tbody>
+          <tr><td><strong>1 mecánico adicional</strong></td><td class="r">$28,601.26</td><td class="r"><strong>$121,851.55</strong></td><td class="r">Recomendación inicial</td></tr>
+          <tr><td>2 mecánicos adicionales</td><td class="r">$57,202.52</td><td class="r">$93,250.29</td><td class="r">Solo si la medición lo exige</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <p class="fuente">Escenarios de sensibilidad del modelo de internalización. Diferencias antes de otros costos. Ningún ahorro está realizado a la fecha de corte.</p>
+  <aside class="notes">
+    Esta diapositiva protege la credibilidad de la propuesta: separamos histórico, potencial y comprobado.
+    El anualizado es aritmético y bruto. El número que importa es el que salga del piloto.
+  </aside>
+</section>
+
+<!-- =====================================================================
+     18 · VALOR · Mapa de valor
+     ===================================================================== -->
+<section class="mapa" data-cap="5">
+  <div class="lienzo">
+    <div class="cabeza" style="margin-bottom:40px">
+      <h2 class="titular">Cada iniciativa se conecta con una palanca económica medible</h2>
+    </div>
+    <table>
+      <thead>
+        <tr><th>Iniciativa</th><th>Ahorro<br>potencial</th><th>Costo<br>evitado</th><th>Productividad</th><th>Control<br>presupuestal</th><th>Menor<br>riesgo</th><th style="text-align:left">Cómo se mide</th></tr>
+      </thead>
+      <tbody>
+        <tr class="fragment" data-fragment-index="0"><td>Internalizar preventivo</td><td><span class="pt fuerte"></span></td><td></td><td><span class="pt"></span></td><td><span class="pt"></span></td><td></td><td class="estado">Cuantificado: hasta $121,851.55/mes bruto</td></tr>
+        <tr class="fragment" data-fragment-index="0"><td>Mecánico en traslape y supervisor</td><td></td><td><span class="pt"></span></td><td><span class="pt fuerte"></span></td><td></td><td><span class="pt"></span></td><td class="estado">Horas extra, rezago y tiempo de ciclo</td></tr>
+        <tr class="fragment" data-fragment-index="1"><td>Inventario y Compras directo</td><td></td><td><span class="pt fuerte"></span></td><td><span class="pt"></span></td><td><span class="pt"></span></td><td><span class="pt"></span></td><td class="estado">Compras urgentes, faltantes y exactitud</td></tr>
+        <tr class="fragment" data-fragment-index="1"><td>Programa de llantas</td><td></td><td><span class="pt"></span></td><td></td><td><span class="pt fuerte"></span></td><td><span class="pt"></span></td><td class="estado">Costo por km y causa de retiro</td></tr>
+        <tr class="fragment" data-fragment-index="2"><td>Encargado administrativo</td><td></td><td></td><td><span class="pt"></span></td><td><span class="pt fuerte"></span></td><td></td><td class="estado">Indicadores y reportes entregados a tiempo</td></tr>
+        <tr class="fragment" data-fragment-index="2"><td>Plataforma digital</td><td></td><td></td><td><span class="pt"></span></td><td><span class="pt fuerte"></span></td><td><span class="pt"></span></td><td class="estado">Órdenes y llantas con registro completo</td></tr>
+        <tr class="complementaria fragment" data-fragment-index="3"><td>Diésel, GPS, recepción de materias primas, patio</td><td><span class="pt ref"></span></td><td><span class="pt ref"></span></td><td><span class="pt ref"></span></td><td><span class="pt ref"></span></td><td><span class="pt ref"></span></td><td class="estado">Por evaluar; sin ahorro atribuido</td></tr>
+      </tbody>
+    </table>
+    <div class="leyenda"><span><i class="fuerte"></i>Palanca principal</span><span><i></i>Palanca secundaria</span><span><i class="ref"></i>Oportunidad complementaria, por medir</span></div>
+  </div>
+  <p class="fuente">Solo la internalización tiene cifra calculada. Las demás iniciativas tienen mecanismo identificado y se cuantifican con la línea base del piloto. Recepción de materias primas: se han mencionado diferencias de hasta 600 kg; requiere báscula y conciliación antes de cuantificar.</p>
+  <aside class="notes">
+    No sumamos beneficios entre filas: se traslaparían. El potencial de las oportunidades complementarias no se mezcla con el cálculo de CAPASA.
+  </aside>
+</section>
+
+<!-- =====================================================================
+     19 · VALOR · Indicadores
+     ===================================================================== -->
+<section class="indicadores" data-cap="5">
+  <div class="lienzo">
+    <div class="cabeza" style="margin-bottom:40px">
+      <h2 class="titular">Los resultados se comprobarán con indicadores propios, no con estimaciones</h2>
+    </div>
+    <div class="grupos">
+      <div class="fragment" data-fragment-index="0">
+        <h3>Mantenimiento</h3>
+        <dl>
+          <div class="kpi"><dt>Cumplimiento preventivo</dt><dd>Realizados a tiempo / programados</dd><span class="frec">Semanal</span></div>
+          <div class="kpi"><dt>Disponibilidad técnica</dt><dd>Unidades disponibles / flota aplicable</dd><span class="frec">Diario</span></div>
+          <div class="kpi"><dt>Tiempo de ciclo OT</dt><dd>Fin − inicio, por tipo de trabajo</dd><span class="frec">Mensual</span></div>
+          <div class="kpi"><dt>Costo por unidad</dt><dd>Materiales + mano de obra + externos</dd><span class="frec">Mensual</span></div>
+          <div class="kpi"><dt>Horas extra</dt><dd>Horas y costo por persona y causa</dd><span class="frec">Quincenal</span></div>
+          <div class="kpi"><dt>Reincidencia</dt><dd>Fallas repetidas por unidad y sistema</dd><span class="frec">Mensual</span></div>
+          <div class="kpi"><dt>Exactitud de inventario</dt><dd>Existencia física / sistema</dd><span class="frec">Mensual</span></div>
+          <div class="kpi"><dt>Costo por km de llanta</dt><dd>Costo / km de vida útil</dd><span class="frec">Al retiro</span></div>
+        </dl>
+      </div>
+      <div class="fragment" data-fragment-index="1">
+        <h3>Logística</h3>
+        <dl>
+          <div class="kpi"><dt>Costo por tonelada</dt><dd>Gasto logístico definido / toneladas entregadas</dd></div>
+          <div class="kpi"><dt>Rendimiento de diésel</dt><dd>Km/L o L/100 km por unidad y ruta</dd></div>
+          <div class="kpi"><dt>Diésel por tonelada</dt><dd>Costo de combustible / toneladas</dd></div>
+          <div class="kpi"><dt>Utilización de flota</dt><dd>Tiempo productivo / disponible</dd></div>
+          <div class="kpi"><dt>Cumplimiento de viaje</dt><dd>Viajes a tiempo / programados</dd></div>
+          <div class="kpi"><dt>Tiempo de ciclo de ruta</dt><dd>Salida de planta a retorno</dd></div>
+        </dl>
+        <p class="nota" style="margin-top:28px">No se fijan porcentajes objetivo hasta validar la línea base y que Dirección los apruebe.</p>
+      </div>
+    </div>
+  </div>
+  <p class="fuente">Indicadores de mantenimiento y Logística del expediente maestro. Frecuencias sugeridas.</p>
+  <aside class="notes">
+    La línea base se levanta en los primeros 30 días del piloto. Sin línea base no hay comparación válida.
+  </aside>
+</section>
+
+<!-- =====================================================================
+     20 · DECISIÓN · Piloto 90 días
+     ===================================================================== -->
+<section class="piloto" data-cap="6">
+  <div class="lienzo">
+    <div class="cabeza" style="margin-bottom:72px">
+      <h2 class="titular">Proponemos un piloto de 90 días con una decisión al final</h2>
+    </div>
+    <div class="tl">
+      <div class="fases">
+        <div class="fase fragment" data-fragment-index="0" style="left:0;width:16.67%"><div class="barra"></div><div class="dias">Días 1–15</div><h3>Preparación</h3><p>Responsables, unidades piloto, formato de OT, herramientas, catálogo y flujo con Compras</p></div>
+        <div class="fase fragment" data-fragment-index="1" style="left:16.67%;width:16.67%"><div class="barra"></div><div class="dias">Días 16–30</div><h3>Arranque</h3><p>Preventivos rutinarios con registro de tiempos, materiales y horas extra; stock inicial</p></div>
+        <div class="fase fragment" data-fragment-index="2" style="left:33.33%;width:33.33%"><div class="barra"></div><div class="dias">Días 31–60</div><h3>Estabilización</h3><p>Ampliar unidades según capacidad; ajustar mínimos; auditar calidad e inventario; iniciar control de llantas</p></div>
+        <div class="fase eval fragment" data-fragment-index="3" style="left:66.67%;width:33.33%"><div class="barra"></div><div class="dias">Días 61–90</div><h3>Evaluación</h3><p>Costo total interno contra CAPASA, tiempos, horas extra, reincidencia y disponibilidad</p><div class="puerta"><span>Escalar, ajustar o retorno parcial</span></div></div>
+      </div>
+    </div>
+    <div class="criterios fragment" data-fragment-index="4">
+      <h3>Criterios de salida</h3>
+      <ul>
+        <li>Preventivos cumplidos</li><li>Seguridad y calidad</li><li>Disponibilidad de unidades</li>
+        <li>Costo total comparable</li><li>Menos rezago</li><li>Materiales trazables</li>
+      </ul>
+    </div>
+  </div>
+  <p class="fuente">Implementación propuesta. Horas extra dentro de límites aceptables también es criterio de salida. Los proveedores externos continúan para trabajos especializados.</p>
+  <aside class="notes">
+    El piloto reduce el riesgo: si el costo total interno no es competitivo o baja la disponibilidad, se ajusta o se regresa parcialmente a CAPASA.
+  </aside>
+</section>
+
+<!-- =====================================================================
+     21 · DECISIÓN · Inversión y recursos
+     ===================================================================== -->
+<section class="inversion" data-cap="6">
+  <div class="lienzo">
+    <div class="cabeza" style="margin-bottom:40px">
+      <h2 class="titular">El único costo nuevo confirmado es el mecánico; lo demás se decide con datos del piloto</h2>
+    </div>
+    <table>
+      <thead><tr><th>Recurso</th><th>Alcance</th><th class="r">Monto</th></tr></thead>
+      <tbody>
+        <tr class="clave fragment" data-fragment-index="0"><td>Mecánico adicional<span class="det">Horario 10:00–18:00</span></td><td>Costo empresa comunicado; incluye costo patronal<span class="det">Tres meses de piloto: $85,803.78</span></td><td class="r monto">$28,601.26 / mes</td></tr>
+        <tr class="fragment" data-fragment-index="1"><td>Estantería para inventario</td><td>Se reutiliza la existente; no se compran racks</td><td class="r monto">Sin compra</td></tr>
+        <tr class="fragment" data-fragment-index="1"><td>Herramientas esenciales</td><td>Dados para filtros y dados milimétricos; compresor y herramienta manual ya existen</td><td class="r monto pend">Por cotizar</td></tr>
+        <tr class="fragment" data-fragment-index="2"><td>Stock inicial</td><td>Con consumo confirmado en el piloto; hoy los materiales ya se pagan vía CAPASA</td><td class="r monto pend">Con datos del piloto</td></tr>
+        <tr class="fragment" data-fragment-index="2"><td>Ampliación de tejabán</td><td>Inversión complementaria; no condiciona el piloto</td><td class="r monto pend">Por cotizar</td></tr>
+        <tr class="fragment" data-fragment-index="3"><td>Plataforma digital</td><td>Prototipo visual existente; desarrollo productivo por definir</td><td class="r monto pend">Por definir</td></tr>
+        <tr class="fragment" data-fragment-index="3"><td>Encargado Administrativo</td><td>Rediseño de funciones; nivel y costo los define Dirección</td><td class="r monto pend">Por definir</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="fuente">No se incluyen precios sin cotización. Equipo especializado adicional se decide según el alcance real del preventivo que se internalice.</p>
+  <aside class="notes">
+    $85,803.78 = 3 × $28,601.26. Es el costo de personal del piloto; no incluye herramientas por cotizar.
+  </aside>
+</section>
+
+<!-- =====================================================================
+     22 · DECISIÓN · Lo que se pide (oscura)
+     ===================================================================== -->
+<section class="decisiones oscura" data-cap="6" data-background-color="#1F2B33">
+  <div class="lienzo">
+    <div class="cabeza" style="margin-bottom:40px">
+      <h2 class="titular">Lo que pedimos que Dirección autorice hoy</h2>
+    </div>
+    <div class="lista">
+      <div>
+        <div class="d primera fragment" data-fragment-index="0"><span class="n">1</span><div><h3>Piloto de 90 días</h3><p>Internalizar preventivos rutinarios en alcance controlado</p></div></div>
+        <div class="d fragment" data-fragment-index="0"><span class="n">2</span><div><h3>Mecánico adicional</h3><p>$28,601.26 al mes, horario 10:00–18:00</p></div></div>
+        <div class="d fragment" data-fragment-index="1"><span class="n">3</span><div><h3>Supervisor responsable del taller</h3><p>Base física en el taller y requisición directa a Compras</p></div></div>
+        <div class="d fragment" data-fragment-index="1"><span class="n">4</span><div><h3>Inventario operativo del taller</h3><p>Estantería existente y controles digitales o documentales</p></div></div>
+      </div>
+      <div>
+        <div class="d fragment" data-fragment-index="2"><span class="n">5</span><div><h3>Trazabilidad de llantas</h3><p>Desde cada nueva instalación</p></div></div>
+        <div class="d fragment" data-fragment-index="2"><span class="n">6</span><div><h3>Evaluar ampliación del tejabán</h3><p>Como inversión complementaria</p></div></div>
+        <div class="d fragment" data-fragment-index="3"><span class="n">7</span><div><h3>Encargado Administrativo de Logística</h3><p>Aprobar el rediseño del puesto y sus entregables</p></div></div>
+        <div class="d fragment" data-fragment-index="3"><span class="n">8</span><div><h3>Patrocinador y revisión mensual</h3><p>Responsables y calendario de seguimiento</p></div></div>
+      </div>
+    </div>
+    <div class="cierre">
+      <p class="fragment" data-fragment-index="4">Hoy no pedimos aprobar un ahorro: pedimos <strong>aprobar la forma de medirlo</strong>.</p>
+      <img src="assets/logo-nutrikowi.png" alt="Nutrikowi">
+    </div>
+  </div>
+  <aside class="notes">
+    Cierre: la decisión de mayor valor es la 1; las demás la hacen posible. Proponer fecha de arranque y la primera revisión mensual.
+  </aside>
+</section>
+
+<!-- =====================================================================
+     23 · ANEXO · Fuentes
+     ===================================================================== -->
+<section class="anexo" data-cap="6">
+  <div class="lienzo">
+    <div class="cabeza" style="margin-bottom:44px">
+      <h2 class="titular">Fuentes, criterios y pendientes</h2>
+    </div>
+    <div class="cols">
+      <div>
+        <h3>Fuentes internas</h3>
+        <ul>
+          <li><b>CAPASA:</b> GASTOS CAPASA 2026; análisis y conciliación enero–octubre 2026; revisión de facturas</li>
+          <li><b>Materiales:</b> análisis integral y matriz por unidad y motor; comparativo de proveedores; kit ISX450</li>
+          <li><b>Llantas:</b> COMPRA DE LLANTAS 2026; diagnóstico enero–septiembre 2026; cuenta 52012031</li>
+          <li><b>Taller:</b> catálogo de unidades; programa preventivo; procedimiento operativo; modelo económico de internalización</li>
+          <li><b>Logística:</b> presentaciones mensuales 2026 (feb, mar, abr, may, jul, sep)</li>
+          <li><b>Sistema:</b> especificación del sistema digital; prototipo publicado</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Criterios de lectura</h3>
+        <ul>
+          <li><b>Histórico</b> es dato observado; <b>potencial</b> es cálculo por validar; <b>propuesta</b> no está implementada ni autorizada</li>
+          <li>Montos sin IVA; el IVA es referencial y no es costo si es acreditable</li>
+          <li>No se suman cuenta contable y solicitudes de llantas</li>
+          <li>No se mezcla el preventivo CAPASA con el mantenimiento total</li>
+        </ul>
+        <h3 style="margin-top:28px">Pendientes</h3>
+        <ul>
+          <li>Conciliar aprobado, facturado y pagado de CAPASA</li>
+          <li>Incorporar el gasto contable total de mantenimiento (enero–septiembre) para dimensionar el resto</li>
+          <li>Medir horas extra completas y tiempos reales; costear externos que permanecen</li>
+          <li>Cotizar dados; normalizar gasto/toneladas de Logística</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <aside class="notes">Diapositiva de respaldo para preguntas.</aside>
+</section>
+
+</div>
+</div>
+
+<div class="visor" role="dialog" aria-modal="true" aria-label="Captura ampliada"><img alt=""></div>
+
+<script src="vendor/reveal/reveal.js"></script>
+<script src="vendor/reveal/plugin/notes/notes.js"></script>
+<script src="vendor/gsap.min.js"></script>
+<script src="js/charts.js"></script>
+<script src="js/deck.js"></script>
+</body>
+</html>
