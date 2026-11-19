@@ -532,3 +532,6 @@ html.print-pdf .reveal .slides .pdf-page { background: var(--papel); }
 /* Piloto: camión que recorre las fases */
 .piloto .ruta-camion { position: absolute; top: -78px; left: 66.67%; width: 120px; transform: translateX(-4px); z-index: 2; }
 .piloto .ruta-camion svg { width: 120px; height: auto; display: block; }
+
+html.print-pdf .portada .foto-portada video { display: none; }
+@media (prefers-reduced-motion: reduce) { .portada .foto-portada video { display: none; } }
