@@ -535,3 +535,13 @@ html.print-pdf .reveal .slides .pdf-page { background: var(--papel); }
 
 html.print-pdf .portada .foto-portada video { display: none; }
 @media (prefers-reduced-motion: reduce) { .portada .foto-portada video { display: none; } }
+
+/* Videos de propuesta: en pantalla se ve el video; en PDF y movimiento reducido, la imagen */
+.comparativo .foto video { display: block; width: 100%; height: 420px; object-fit: cover; border-radius: 10px; background: var(--linea); }
+.comparativo .foto.con-video img { display: none; }
+html.print-pdf .comparativo .foto.con-video video { display: none; }
+html.print-pdf .comparativo .foto.con-video img { display: block; }
+@media (prefers-reduced-motion: reduce) {
+  .comparativo .foto.con-video video { display: none; }
+  .comparativo .foto.con-video img { display: block; }
+}
