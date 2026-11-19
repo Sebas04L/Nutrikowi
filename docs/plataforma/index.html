@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="es-MX">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Nutrikowi · Logística y Taller</title>
+  <meta name="description" content="Prototipo de interfaz de la plataforma interna de logística, flotilla y taller de Nutrikowi. Datos de demostración.">
+  <meta name="theme-color" content="#18222B">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23EE7814'/%3E%3Cpath d='M9 23V9h3l8 9.5V9h3v14h-3l-8-9.5V23z' fill='%23fff'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Saltar al contenido</a>
+
+  <div class="app" id="app">
+    <!-- Navegación lateral -->
+    <aside class="sidebar" id="sidebar" aria-label="Navegación principal">
+      <div class="sidebar__brand">
+        <a href="#/inicio" class="brand-link" aria-label="Nutrikowi — ir a Inicio">
+          <img src="assets/logo-nutrikowi.png" alt="Nutrikowi" class="brand-logo" width="1000" height="150">
+        </a>
+        <span class="brand-sub">Logística y Taller</span>
+      </div>
+
+      <nav class="nav" id="nav">
+        <div class="nav__group">
+          <span class="nav__label">Operación</span>
+          <a class="nav__item" href="#/inicio" data-route="inicio"><i data-lucide="layout-dashboard"></i><span>Inicio</span></a>
+          <a class="nav__item" href="#/flotilla" data-route="flotilla"><i data-lucide="truck"></i><span>Flotilla</span></a>
+          <a class="nav__item" href="#/taller" data-route="taller"><i data-lucide="wrench"></i><span>Taller</span><b class="nav__count" id="nav-count-taller"></b></a>
+          <a class="nav__item" href="#/llantas" data-route="llantas"><i data-lucide="circle-dot"></i><span>Llantas</span></a>
+        </div>
+        <div class="nav__group">
+          <span class="nav__label">Almacén</span>
+          <a class="nav__item" href="#/inventario" data-route="inventario"><i data-lucide="package"></i><span>Inventario</span><b class="nav__count nav__count--alert" id="nav-count-inv"></b></a>
+          <a class="nav__item" href="#/solicitudes" data-route="solicitudes"><i data-lucide="clipboard-list"></i><span>Solicitudes de material</span></a>
+        </div>
+        <div class="nav__group">
+          <span class="nav__label">Gestión</span>
+          <a class="nav__item" href="#/reportes" data-route="reportes"><i data-lucide="chart-column"></i><span>Reportes</span></a>
+          <a class="nav__item" href="#/administracion" data-route="administracion"><i data-lucide="briefcase"></i><span>Administración</span></a>
+        </div>
+      </nav>
+
+      <div class="sidebar__foot">
+        <div class="demo-note">
+          <i data-lucide="flask-conical"></i>
+          <div>
+            <strong>Datos de demostración</strong>
+            <span>Información ficticia para mostrar la interfaz.</span>
+          </div>
+        </div>
+        <button class="btn btn--ghost btn--sm btn--block" type="button" id="btn-reset"><i data-lucide="rotate-ccw"></i>Restablecer demostración</button>
+      </div>
+    </aside>
+    <div class="scrim" id="scrim" hidden></div>
+
+    <!-- Área principal -->
+    <div class="main">
+      <header class="topbar">
+        <button class="icon-btn topbar__menu" type="button" id="btn-menu" aria-label="Abrir menú" aria-controls="sidebar" aria-expanded="false"><i data-lucide="menu"></i></button>
+        <img src="assets/logo-nutrikowi.png" alt="Nutrikowi" class="topbar__logo" width="1000" height="150">
+
+        <div class="search" role="search">
+          <i data-lucide="search"></i>
+          <input id="global-search" type="search" placeholder="Buscar unidad, orden, artículo o solicitud" aria-label="Búsqueda general" autocomplete="off">
+          <kbd>/</kbd>
+          <div class="search__results" id="search-results" hidden></div>
+        </div>
+
+        <div class="topbar__right">
+          <span class="demo-pill" title="Toda la información es ficticia"><span class="dot"></span>Demostración</span>
+          <div class="notif">
+            <button class="icon-btn" type="button" id="btn-notif" aria-label="Notificaciones" aria-expanded="false" aria-controls="notif-panel"><i data-lucide="bell"></i><span class="notif__dot" id="notif-dot" hidden></span></button>
+            <div class="notif__panel" id="notif-panel" hidden></div>
+          </div>
+          <div class="user">
+            <span class="avatar" aria-hidden="true">DT</span>
+            <div class="user__meta"><strong>Daniel Treviño</strong><span>Supervisor de Taller</span></div>
+          </div>
+        </div>
+      </header>
+
+      <main id="main" class="content" tabindex="-1"></main>
+    </div>
+  </div>
+
+  <div id="layer"></div>
+  <div class="toasts" id="toasts" aria-live="polite" aria-atomic="false"></div>
+
+  <script src="vendor/chart.umd.min.js"></script>
+  <script src="vendor/lucide.min.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/views/inicio.js"></script>
+  <script src="js/views/flotilla.js"></script>
+  <script src="js/views/taller.js"></script>
+  <script src="js/views/inventario.js"></script>
+  <script src="js/views/solicitudes.js"></script>
+  <script src="js/views/llantas.js"></script>
+  <script src="js/views/reportes.js"></script>
+  <script src="js/views/administracion.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

@@ -156,3 +156,25 @@ estación en el mapa, `src/lib/escena.ts`.
 La aplicación compilada está en `docs/` y se publica con GitHub Pages en
 **https://sebas04l.github.io/Nutrikowi/**. Los datos de los viajes no se suben a GitHub: cada
 navegador guarda los suyos (descarga respaldos JSON desde *Respaldo*).
+
+---
+
+## Prototipo: Plataforma de Logística y Taller
+
+Demostración de interfaz (sin servidor ni base de datos) en `docs/plataforma/`. Se abre con doble
+clic en `docs/plataforma/index.html` y funciona sin internet: Chart.js, Lucide y las fuentes Fira
+están incluidas en `docs/plataforma/vendor/`. Al publicarse con GitHub Pages queda en
+**https://sebas04l.github.io/Nutrikowi/plataforma/**.
+
+Módulos: Inicio, Flotilla, Taller, Llantas, Inventario, Solicitudes de material, Reportes y
+Administración (con análisis asistido simulado). Todos los datos son ficticios; los cambios se
+guardan en el navegador y se pueden borrar con *Restablecer demostración*.
+
+| Archivo | Contenido |
+|---|---|
+| `css/styles.css` | Sistema de diseño (colores, tipografía, componentes, responsive) |
+| `js/data.js` | Datos de demostración generados de forma determinista |
+| `js/store.js` | Estado de la demostración (localStorage) |
+| `js/ui.js` | Formato, etiquetas de estado, modales, avisos y gráficos |
+| `js/views/*.js` | Una pantalla por módulo |
+| `js/app.js` | Navegación, búsqueda general y notificaciones |
