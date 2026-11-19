@@ -157,6 +157,12 @@
     slide.querySelectorAll(".fragment.visible").forEach(animarGrupo);
   }
 
+  /* Videos con data-reiniciar: arrancan desde cero al llegar a la diapositiva y se pausan al salir */
+  function videos(actual, previa) {
+    if (previa) previa.querySelectorAll("video[data-reiniciar]").forEach(function (v) { v.pause(); });
+    if (actual && !IMPRESION) actual.querySelectorAll("video[data-reiniciar]").forEach(function (v) { try { v.currentTime = 0; v.play(); } catch (err) {} });
+  }
+  Reveal.on("slidechanged", function (e) { videos(e.currentSlide, e.previousSlide); });
   Reveal.on("ready", function (e) { entrar(e.currentSlide, null); anterior = e.currentSlide; });
   Reveal.on("slidechanged", function (e) { entrar(e.currentSlide, e.previousSlide); anterior = e.currentSlide; });
   Reveal.on("fragmentshown", function (e) { (e.fragments || [e.fragment]).forEach(animarGrupo); moverCamion(); });

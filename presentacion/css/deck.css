@@ -553,3 +553,16 @@ html.print-pdf .comparativo .foto.con-video img { display: block; }
 .tejaban .notas-lado div { font-size: 25px; line-height: 1.45; color: var(--acero); padding: 22px 0; border-top: 2px solid var(--asfalto); }
 .tejaban .notas-lado div + div { border-top: 1px solid var(--linea); }
 .tejaban .notas-lado b { display: block; font-size: 29px; color: var(--asfalto); margin-bottom: 6px; }
+
+/* Almacén: video 5S con pasos al lado */
+.almacen5s { display: grid; grid-template-columns: 1130px 1fr; column-gap: 64px; align-items: start; }
+.comparativo .almacen5s .foto video, .comparativo .almacen5s .foto img { height: 636px; width: 100%; object-fit: cover; border-radius: 10px; background: #000; }
+.video-5s img { display: none; }
+html.print-pdf .video-5s video { display: none; }
+html.print-pdf .video-5s img { display: block; }
+.almacen5s .marca-foto + .marca-foto { margin-left: -6px; }
+.pasos-5s { list-style: none; padding: 0; margin: 0; counter-reset: s; }
+.pasos-5s li { counter-increment: s; position: relative; padding: 16px 0 16px 58px; border-top: 1px solid var(--linea); font-size: 23px; line-height: 1.4; color: var(--acero); }
+.pasos-5s li:first-child { border-top: 2px solid var(--asfalto); }
+.pasos-5s li::before { content: counter(s); position: absolute; left: 0; top: 16px; width: 40px; height: 40px; border-radius: 50%; background: var(--naranja); color: var(--asfalto); font-weight: 760; font-size: 22px; display: grid; place-items: center; }
+.pasos-5s b { display: block; font-size: 27px; color: var(--asfalto); }
